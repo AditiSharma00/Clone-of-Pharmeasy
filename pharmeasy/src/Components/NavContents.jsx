@@ -11,9 +11,20 @@ import {
 
 import { ChevronDownIcon } from '@chakra-ui/icons';
 
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
+import { ProductContext } from '../Context/ProductContext';
+import { Link as RLink, Navigate, useNavigate } from 'react-router-dom';
 
 export const NavContents = () => {
+
+    const navigate = useNavigate();
+    const { state, dispatchFun } = useContext(ProductContext);
+    // console.log('prodPageCategory:', state);
+
+    if (state) {
+        return <Navigate to='/products' />
+    }
+
     return (
         <Box mt={'4rem'}>
             <Divider borderColor={'gray.900'} />
@@ -22,17 +33,19 @@ export const NavContents = () => {
                 <Text>Lab Tests</Text>
                 <Menu>
                     <MenuButton _hover={{ color: 'gray.400' }}>
-                        <Text>HealthCare<ChevronDownIcon /></Text>
+                        <Text>Healthcare<ChevronDownIcon /></Text>
                     </MenuButton>
                     <MenuList>
-                        <MenuItem>Personal Care</MenuItem>
-                        <MenuItem>Fitness Supplements</MenuItem>
-                        <MenuItem>Home Care</MenuItem>
-                        <MenuItem>Skin Care</MenuItem>
-                        <MenuItem>Elderly Care</MenuItem>
-                        <MenuItem>Stomach Care</MenuItem>
-                        <MenuItem>Baby Care</MenuItem>
-                        <MenuItem>Health Condition</MenuItem>
+                        {/* <RLink to='/products'> */}
+                            <MenuItem onClick={() => dispatchFun({ type: "PERSONAL_CARE" })}>Personal Care</MenuItem>
+                            <MenuItem onClick={() => dispatchFun({ type: "FITNESS_CARE" })}>Fitness Supplements</MenuItem>
+                            <MenuItem onClick={() => dispatchFun({ type: "HOME_CARE" })}>Home Care</MenuItem>
+                            <MenuItem onClick={() => dispatchFun({ type: "HEALTH_CARE" })}>Health Care</MenuItem>
+                            <MenuItem onClick={() => dispatchFun({ type: "ELDERLY_CARE" })}>Elderly Care</MenuItem>
+                            <MenuItem onClick={() => dispatchFun({ type: "STOMACH_CARE" })}>Stomach Care</MenuItem>
+                            <MenuItem onClick={() => dispatchFun({ type: "BABY_CARE" })}>Baby Care</MenuItem>
+                            <MenuItem onClick={() => dispatchFun({ type: "HEALTH_CONDITION" })}>Health Condition</MenuItem>
+                        {/* </RLink> */}
                     </MenuList>
                 </Menu>
                 <Text>Surgeries</Text>
