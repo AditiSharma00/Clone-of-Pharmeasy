@@ -54,6 +54,8 @@ export const Products = () => {
             dispatch(getProducts('health-care'))
         }
     }, [])
+
+
     return (
         <Box w='75%' m={'auto'} mt='6' mb='50px' border={'0px solid red'}>
             <Breadcrumb fontWeight='small' fontSize='sm' spacing='8px' separator={<ChevronRightIcon color='gray.500' />}>
@@ -122,7 +124,7 @@ export const Products = () => {
 
                 <Stack w='80%' border={'0px solid'} m='auto'>
                     <HStack justifyContent={'space-between'} alignItems='center' mt={'40px'} mr='5'>
-                        <Heading fontSize="25px" fontWeight="500" w='300px'  pl='4' >
+                        <Heading fontSize="25px" fontWeight="500" w='300px' pl='4' >
                             {category.toUpperCase()}
                         </Heading>
                         <HStack gap='10px'>
