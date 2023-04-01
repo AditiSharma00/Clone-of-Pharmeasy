@@ -88,6 +88,8 @@ const Cart = () => {
                 display="flex"
                 justify="space-between"
                 textAlign="left"
+                marginLeft="40px"
+                
               >
                 <Button
                   bg="transparent"
@@ -113,6 +115,7 @@ const Cart = () => {
               fontWeight="700"
               fontSize="16px"
               fontFamily='"Open Sans", sans-serif'
+              marginLeft="35px"
             >
               Apply Coupon / View Offers
             </Button>
