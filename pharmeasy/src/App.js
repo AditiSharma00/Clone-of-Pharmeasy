@@ -1,18 +1,20 @@
 import "./App.css";
 
-import Content from "./Components/HomePage/Content";
-import NavBar from "./Components/Navbar";
-import { AllRoutes } from "./AllRoutes/AllRoutes";
 
+
+import Navbar from "./Components/Navbar/Navbar";
+import AllRoutes from "./Pages/AllRoutes";
+import Footer from "./Components/Footer/Footer";
+import Banner from "./Components/Footer/Banner";
 function App() {
-  return <div>
-
-     <NavBar />
-      <Content />
-    <AllRoutes/>
-  </div>;
-
-
+  return (
+    <div>
+      <Navbar />
+      <AllRoutes />
+      <Banner />
+      <Footer />
+    </div>
+  );
 }
 
 export default App;

@@ -6,7 +6,6 @@ import {
     BreadcrumbLink,
     Checkbox,
     Divider,
-    Grid,
     Heading,
     HStack,
     Input,
@@ -18,47 +17,14 @@ import {
     Text
 } from '@chakra-ui/react';
 
-import React, { useContext, useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import { ProductContext } from '../../Context/ProductContext';
-import { getProducts } from '../../Redux/productsReducer/prodAction';
-import { ProductCard } from './ProductCard';
-
+import React from 'react'
 
 export const Products = () => {
-
-    const dispatch = useDispatch();
-    const { products } = useSelector((store) => {
-        // console.log('store', store.productsReducer);
-        return store.productsReducer
-    });
-
-    const { state, _ } = useContext(ProductContext)
-    const [category, setCategory] = useState('');
-
-    useEffect(() => {
-        if (state === 'toothbrush') setCategory('Personal Care');
-        else if (state === 'forMen') setCategory('Fitness Supplements');
-        else if (state === "disposalBag") setCategory('Home Care');
-        else if (state === "health-care") setCategory('Health Care');
-        else if (state === "massageOil") setCategory('Elderly Care');
-        else if (state === "acidity") setCategory('Stomach Care');
-        else if (state === "babyHealthcare") setCategory('Baby Care');
-        else if (state === "covidKits") setCategory('Health Condition');
-
-        if (state) {
-            dispatch(getProducts(state))
-        }
-        else {
-            setCategory('Health Care');
-            dispatch(getProducts('health-care'))
-        }
-    }, [])
     return (
-        <Box w='75%' m={'auto'} mt='6' mb='50px' border={'0px solid red'}>
+        <Box w='80%' m={'auto'} mt='6' mb='50px' border={'2px solid red'}>
             <Breadcrumb fontWeight='small' fontSize='sm' spacing='8px' separator={<ChevronRightIcon color='gray.500' />}>
                 <BreadcrumbItem>
-                    <BreadcrumbLink href='/'>Home</BreadcrumbLink>
+                    <BreadcrumbLink href='#'>Home</BreadcrumbLink>
                 </BreadcrumbItem>
 
                 <BreadcrumbItem>
@@ -66,23 +32,23 @@ export const Products = () => {
                 </BreadcrumbItem>
 
                 <BreadcrumbItem isCurrentPage>
-                    <BreadcrumbLink href='#'>{category}</BreadcrumbLink>
+                    <BreadcrumbLink href='#'>Contact</BreadcrumbLink>
                 </BreadcrumbItem>
             </Breadcrumb>
 
             <Stack gap={'20px'} direction='row'>
-                <Stack w='25%' border={'0px solid'}>
+                <Stack w='25%' border={'1px solid'}>
                     <Heading fontSize={'25px'} fontWeight='500' pt={'40px'} pb="40px">
                         Filter
                     </Heading>
                     <Heading fontSize="16px" fontWeight="600" pb="20px" >
                         Category
                     </Heading>
-                    <Stack direction={'row'} justifyContent='space-between' pb={'20px'}>
-                        <Text>{category}</Text>
+                    <Stack direction={'row'} justifyContent='center' pb={'20px'}>
+                        <Text>Nutrition & Fitness Supplements</Text>
                         <Radio type={'radio'} size='lg' colorScheme='teal' isChecked />
                     </Stack>
-                    <Divider w='90%' borderColor={'gray.900'} />
+                    <Divider w='90%' jus alignItems={'center'} borderColor={'gray.900'} />
                     <Heading fontSize="16px" fontWeight="600" pt={'20px'} pb="20px" >
                         Brand
                     </Heading>
@@ -117,30 +83,23 @@ export const Products = () => {
                         <Checkbox size='lg' colorScheme={'teal'} />
                     </HStack>
                 </Stack>
-
+    
                 {/* Right side */}
-
-                <Stack w='80%' border={'0px solid'} m='auto'>
-                    <HStack justifyContent={'space-between'} alignItems='center' mt={'40px'} mr='5'>
-                        <Heading fontSize="25px" fontWeight="500" w='300px'  pl='4' >
-                            {category.toUpperCase()}
+                
+                <Stack w='80%' border={'1px solid'} m='auto'>
+                    <HStack justifyContent={'space-between'} align='center'>
+                        <Heading fontSize="25px" fontWeight="500" w='300px' pt={'40px'}> 
+                            Nutrition & Fitness Supplements
                         </Heading>
-                        <HStack gap='10px'>
-                            <Text w='60px' fontSize={'14px'}>Sort By :</Text>
-                            <Select w='180px' h='30px'>
+                        <HStack gap='20px'>
+                            <Text w='60px' fontSize={'14px'}>Sort By:</Text>
+                            <Select w='220px'>
                                 <option value="">Select</option>
                                 <option value="asc">Price Low to High</option>
                                 <option value="des">Price High to Low</option>
                             </Select>
                         </HStack>
                     </HStack>
-
-                    <Grid templateColumns='repeat(3, 1fr)' gap={6}>
-                        {products?.map((el) => (
-                            <ProductCard key={el.id} alt={el.id}
-                                {...el} />
-                        ))}
-                    </Grid>
                 </Stack>
             </Stack>
         </Box>
