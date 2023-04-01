@@ -32,6 +32,7 @@ import Tabs from "./Tabs";
 // import { LoginIndividualSlider } from "";
 import { useDispatch, useSelector } from "react-redux";
 import { LoginIndividualSlider } from "../../Pages/LogInPages/QuickLogin";
+import { NavContents } from "./NavContents";
 
 // import { getCartTotal } from "../../Redux/Cart/action";
 
@@ -322,7 +323,10 @@ function Navbar() {
           </DrawerContent>
         </Drawer>
       </Box>
-      <Box height="65px" width="100%"></Box>
+      <Box height="65px" width="100%">
+        {" "}
+        <NavContents />
+      </Box>
     </Box>
   );
 }
