@@ -1,24 +1,20 @@
 import "./App.css";
 
-import { NavContents } from "./Components/NavContents";
-import { ProductCard } from "./Pages/ProductPage/ProductCard";
-import { Products } from "./Pages/ProductPage/Products";
-import Content from "./Components/HomePage/Content";
-import NavBar from "./Components/Navbar";
-import Cart from "./Pages/Cart/Cart";
 
+
+import Navbar from "./Components/Navbar/Navbar";
+import AllRoutes from "./Pages/AllRoutes";
+import Footer from "./Components/Footer/Footer";
+import Banner from "./Components/Footer/Banner";
 function App() {
-  return <div>
-
-     <NavBar />
-      <Content />
-    <NavContents/>
-    <Products/>
-    <ProductCard/> 
-    <Cart/>
-  </div>;
-
-
+  return (
+    <div>
+      <Navbar />
+      <AllRoutes />
+      <Banner />
+      <Footer />
+    </div>
+  );
 }
 
 export default App;

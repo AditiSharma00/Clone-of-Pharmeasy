@@ -16,10 +16,12 @@ import { BsSearch } from "react-icons/bs";
 import content from "./MiniComponents/Contentstyle.module.css";
 
 // Import components
-// import Carousel from "./MiniComponents/Carousel";
+import Carousel from "./MiniComponents/Carousel";
 import Offer from "./MiniComponents/Offer";
 import Category from "./MiniComponents/Category";
 import Launches from "./MiniComponents/Launches";
+import SearchBar from "./MiniComponents/SearchBar";
+import TabCarousal from "./MiniComponents/TabCarousel";
 
 const PaymentOffers = [
   "https://cdn01.pharmeasy.in/dam/banner/banner/a93d45ef9eb-HSBC.jpg?dim=1440x0",
@@ -221,103 +223,15 @@ export default function Content() {
           <h1 style={{ fontSize: "30px", marginLeft: "30%" }}>
             <b>What are you looking for?</b>
           </h1>
-
-          <div className="searchBox" style={{ width: "50%", margin: "auto" }}>
-            <InputGroup>
-              <InputLeftElement children={<BsSearch />} />
-              <Input
-                type="tel"
-                placeholder="Search for medicine"
-                borderRadius="40px"
-              />
-              <InputRightElement
-                width="110px"
-                children={
-                  <Button colorScheme="teal" borderRadius="40px" width="100px">
-                    Button
-                  </Button>
-                }
-              />
-            </InputGroup>
-          </div>
         </div>
-
+        <SearchBar />
         <hr style={{ marginTop: "30px" }} />
-
-        <div className={content.catMain_1}>
-          <div>
-            <img
-              src="https://assets.pharmeasy.in/apothecary/images/medicine_ff.webp?dim=256x0"
-              alt="1"
-            />
-            <p>Medicine</p>
-            <p>UPTO 20% OFF</p>
-          </div>
-          <div>
-            <img
-              src="https://assets.pharmeasy.in/apothecary/images/labtest_ff.webp?dim=256x0"
-              alt="2"
-            />
-            <p>Lab Test</p>
-            <p>UPTO 70% OFF</p>
-          </div>
-          <div>
-            <Link to="/healthcare">
-              <img
-                src="https://assets.pharmeasy.in/apothecary/images/healthcare_ff.webp?dim=256x0"
-                alt="3"
-              />
-            </Link>
-
-            <p>Healthcare</p>
-            <p>UPTO 60% OFF</p>
-          </div>
-          <div>
-            <img
-              src="https://assets.pharmeasy.in/apothecary/images/offers_1_ff.webp?dim=256x0"
-              alt="4"
-            />
-            <p>Surgeries</p>
-            <p>UPTO 20% OFF</p>
-          </div>
-          <div>
-            <img
-              src="https://assets.pharmeasy.in/apothecary/images/health_blogs_ff.webp?dim=256x0"
-              alt="5"
-            />
-            <p>Health Blogs</p>
-            <p>UPTO 10% OFF</p>
-          </div>
-          <div>
-            <img
-              src="https://assets.pharmeasy.in/apothecary/images/plus_ff.webp?dim=256x0"
-              alt="6"
-            />
-            <p>PLUS</p>
-            <p>UPTO 20% OFF</p>
-          </div>
-          <div>
-            <img
-              src="https://assets.pharmeasy.in/apothecary/images/offers_ff.webp?dim=256x0"
-              alt="7"
-            />
-            <p>Offers</p>
-            <p>UPTO 70% OFF</p>
-          </div>
-          <div>
-            <img
-              src="https://assets.pharmeasy.in/apothecary/images/value_store.png?dim=256x0"
-              alt="8"
-            />
-            <p>Value Store</p>
-            <p>UPTO 50% OFF</p>
-          </div>
-        </div>
+        <TabCarousal />
       </div>
 
       <hr style={{ marginTop: "20px" }} />
       {/* carousel */}
-      {/* <Carousel cards={cards} /> */}
+      <Carousel />
       <hr style={{ marginTop: "20px" }} />
 
       <div id="LabTest_box">
