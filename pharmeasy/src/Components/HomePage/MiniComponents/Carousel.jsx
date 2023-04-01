@@ -1,104 +1,120 @@
-// import React from "react";
-// import { Box, IconButton, useBreakpointValue } from "@chakra-ui/react";
-// // Here we have used react-icons package for the icons
-// import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
-// // And react-slick as our Carousel Lib
-// import Slider from "react-slick";
+import { Box, Flex, IconButton, Image } from "@chakra-ui/react";
+import React, { useEffect, useState } from "react";
+import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 
-// // Settings for the slider
-// const settings = {
-//   dots: true,
-//   arrows: false,
-//   fade: true,
-//   infinite: true,
-//   autoplay: true,
-//   speed: 500,
-//   autoplaySpeed: 5000,
-//   slidesToShow: 1,
-//   slidesToScroll: 1,
-// };
+const images = [
+  {
+    url: "https://cdn01.pharmeasy.in/dam/banner/banner/833b0458766-HP.jpg",
+  },
+  {
+    url: "https://cdn01.pharmeasy.in/dam/banner/banner/093f30fa096-revisedgrand1000.jpg",
+  },
+  {
+    url: "https://cdn01.pharmeasy.in/dam/banner/banner/c0034c14fe6-634X274.jpg",
+  },
+  {
+    url: "https://cdn01.pharmeasy.in/dam/banner/banner/2faeb574eaa-slipper.jpg",
+  },
+  {
+    url: "https://cdn01.pharmeasy.in/dam/banner/banner/067980fe26a-Centrum_634X274-min.jpg",
+  },
+];
 
-// export default function Carousel({ cards }) {
-//   // As we have used custom buttons, we need a reference variable to
-//   // change the state
-//   const [slider, setSlider] = React.useState(0);
+function Carousal() {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [scroll, setScroll] = useState(0);
 
-//   // These are the breakpoints which changes the position of the
-//   // buttons as the screen size changes
-//   const top = useBreakpointValue({ base: "90%", md: "50%" });
-//   const side = useBreakpointValue({ base: "30%", md: "10px" });
+  function onScrollY() {
+    document.getElementById("imageScroll").scrollLeft += 400;
+    setScroll((prev) => prev + 400);
+  }
+  function onScrollX() {
+    document.getElementById("imageScroll").scrollLeft -= 400;
+    setScroll((prev) => prev - 400);
+  }
 
-//   // These are the images used in the slide
-//   // const cards = [
-//   //   "https://cdn01.pharmeasy.in/dam/banner/banner/760565c68b5-VIBES27.jpg",
-//   //   "https://cdn01.pharmeasy.in/dam/banner/banner/048facc8065-634x274a.jpg",
-//   //   "https://cdn01.pharmeasy.in/dam/banner/banner/b31ed8123b6-CP.jpg",
-//   //   "https://cdn01.pharmeasy.in/dam/banner/banner/1ef60ed33e9-VicksWinterBannerfinal.jpg",
-//   // ];
+  // console.log(scroll);
+  useEffect(() => {
+    window.addEventListener("resize", () => setWindowWidth(window.innerWidth));
+    return () => {
+      window.removeEventListener("resize", () =>
+        setWindowWidth(window.innerWidth)
+      );
+    };
+  }, []);
+  useEffect(() => {
+    const id = setInterval(() => {
+      if (scroll > 1800) {
+        document.getElementById("imageScroll").scrollLeft = 0;
+        setScroll(0);
+      } else {
+        onScrollY();
+      }
+    }, 3000);
 
-//   return (
-//     <Box
-//       position={"relative"}
-//       height={"350px"}
-//       width={"80%"}
-//       overflow={"hidden"}
-//       margin="auto"
-//     >
-//       {/* CSS files for react-slick */}
-//       <link
-//         rel="stylesheet"
-//         type="text/css"
-//         charSet="UTF-8"
-//         href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
-//       />
-//       <link
-//         rel="stylesheet"
-//         type="text/css"
-//         href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
-//       />
-//       {/* Left Icon */}
-//       <IconButton
-//         bgColor="gray"
-//         aria-label="left-arrow"
-//         colorScheme="messenger"
-//         borderRadius="full"
-//         position="absolute"
-//         left={side}
-//         top={top}
-//         transform={"translate(0%, -50%)"}
-//         zIndex={2}
-//         onClick={() => slider?.slickPrev()}
-//       >
-//         <BiLeftArrowAlt />
-//       </IconButton>
-//       {/* Right Icon */}
-//       <IconButton
-//         bgColor="gray"
-//         aria-label="right-arrow"
-//         colorScheme="messenger"
-//         borderRadius="full"
-//         position="absolute"
-//         right={side}
-//         top={top}
-//         transform={"translate(0%, -50%)"}
-//         zIndex={2}
-//         onClick={() => slider?.slickNext()}
-//       >
-//         <BiRightArrowAlt />
-//       </IconButton>
-//       {/* Slider */}
-//       <Slider {...settings} ref={(slider) => setSlider(slider)}>
-//         {cards.map((url, index) => (
-//           <Box
-//             key={index}
-//             height={"350px"}
-//             position="relative"
-//             backgroundPosition="center"
-//             backgroundRepeat="no-repeat"
-//             backgroundImage={`url(${url})`}
-//           />
-//         ))}
-//       </Slider>
-//     </Box>
-//   );
-// }
+    return () => {
+      clearInterval(id);
+    };
+  }, []);
+  return (
+    <Box
+      width="100%"
+      // paddingLeft={{ base: "10px", sm: "20px", lg: "50px", xl: "50px" }}
+      // paddingRight={{ base: "10px", sm: "20px", lg: "50px", xl: "50px" }}
+      mt="30px"
+    >
+      <Box width="100%" position="relative">
+        {windowWidth > 1024 && scroll > 0 && (
+          <IconButton
+            onClick={onScrollX}
+            bg={"rgba(0,0,0,0.4)"}
+            position="absolute"
+            top="110"
+            left="-5"
+            borderRadius="50%"
+            icon={<AiOutlineLeft color="white" />}
+          >
+            L
+          </IconButton>
+        )}
+
+        <Flex
+          width="100%"
+          gap={{ base: "10px", lg: "20px", sm: "20px" }}
+          overflowX="scroll"
+          overflowY="hidden"
+          paddingY={5}
+          className="hideScroll"
+          id="imageScroll"
+          scrollBehavior="smooth"
+        >
+          {images.map((tab) => (
+            <Box
+              // maxWidth="141px"
+              minW={{ base: "250px", sm: "300px", lg: "500px" }}
+              key={tab.url}
+              // _hover={{lg:{boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px;",borderRadius: "10px"}}}
+              cursor="pointer"
+              // paddingX="12px"
+            >
+              <Image borderRadius="10px" src={tab.url}></Image>
+            </Box>
+          ))}
+        </Flex>
+        {windowWidth > 1024 && scroll < 1800 && (
+          <IconButton
+            onClick={onScrollY}
+            bg={"rgba(0,0,0,0.4)"}
+            position="absolute"
+            top="110"
+            right="-15"
+            borderRadius="50%"
+            icon={<AiOutlineRight color="white" />}
+          ></IconButton>
+        )}
+      </Box>
+    </Box>
+  );
+}
+
+export default Carousal;
