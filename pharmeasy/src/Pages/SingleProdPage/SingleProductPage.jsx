@@ -6,50 +6,45 @@ import { FaRegStar, FaShareAlt, FaStar } from "react-icons/fa";
 import { TiStarHalfOutline } from "react-icons/ti";
 import { BiChevronRight } from "react-icons/bi";
 import { SimilarProductSlider } from './SimilarProductSlider';
-import { useDispatch, useSelector } from 'react-redux';
-import { postCartProduct } from '../../Redux/cartReducer/cartAction';
+import { useSelector } from 'react-redux';
 
-// const initState = {
-//     image_src: '',
-//     productName: '',
-//     salePrice: +(''),
-//     MRP: '',
-//     discountPercent: '',
-//     id: +('')
-// }
-const cartItem = localStorage.getItem('cartItems') || [];
 
 export const SingleProductPage = () => {
 
-    const dispatch = useDispatch();
+    const [cartItems, setCartItems] = useState([]);
     const { id } = useParams()
-    const [cartData, setCartData] = useState('')
+    const [cartData, setCartData] = useState({})
     const { products } = useSelector((store) => {
         return store.prodReducer
     });
 
+
     useEffect(() => {
-        const singleProdData = products.find((el) => el.id === +id)
-        // console.log(id);
-        // console.log('find_item',singleProdData);
-        setCartData(singleProdData);
+        const items = JSON.parse(localStorage.getItem("cartItems")) || [];
+        setCartItems(items);
+        // console.log(items);
     }, [])
 
-    console.log('cartitem', cartData);
+
+    useEffect(() => {
+        if (id) {
+            const singleProdData = products.find((el) => el.id === +id)
+            // console.log('find_item',singleProdData);
+            setCartData(singleProdData)
+        }
+    }, [])
+
+    // console.log('strd', cartData);
 
 
     const handleAddToCart = () => {
-        //    dispatch(postCartProduct(cartData)).then((res)=>{
-        //     console.log('postCart res', res);
-        //    })
-
-        if (cartData) {
-            cartItem.push(cartData)
-            localStorage.setItem('cartItmes', JSON.stringify(cartItem));
-            console.log('ccc', cartItem);
-        }
-
+        const newItems = [...cartItems];
+        newItems.push(cartData)
+        setCartItems(newItems);
+        localStorage.setItem("cartItems", JSON.stringify(newItems));
     }
+    // console.log('localstorageItem',cartItems.length);
+
 
     return (
         <Box border={'0px solid'} px='100px' mt={'20px'}>
@@ -102,7 +97,7 @@ export const SingleProductPage = () => {
                                                 // transtion='opacity  1s'
                                                 h={'95%'}
                                                 w='95%'
-                                                src={"https://assets.pharmeasy.in/apothecary/images/offers_1_ff.webp?dim=256x0"} alt="" />
+                                                src={cartData.image_src} alt="" />
                                         </Box>
                                     </Flex>
                                     <Flex
@@ -118,13 +113,13 @@ export const SingleProductPage = () => {
                                             cursor="pointer"
                                         >
                                             <Image
-                                                w="75%"
+                                                h="50px"
                                                 transition="all 0.4s ease"
                                                 _hover={{
                                                     transform: "scale(1.2)",
                                                     transition: "all 0.4s ease",
                                                 }}
-                                                src={'https://assets.pharmeasy.in/apothecary/images/offers_1_ff.webp?dim=256x0'}
+                                                src={cartData.image_src}
                                             />
                                         </Center>
                                         <Center
@@ -136,13 +131,13 @@ export const SingleProductPage = () => {
                                             cursor="pointer"
                                         >
                                             <Image
-                                                w="75%"
+                                                h="50px"
                                                 transition="all 0.4s ease"
                                                 _hover={{
                                                     transform: "scale(1.2)",
                                                     transition: "all 0.4s ease",
                                                 }}
-                                                src='https://assets.pharmeasy.in/apothecary/images/offers_1_ff.webp?dim=256x0'
+                                                src={cartData.image_src}
                                             />
                                         </Center>
                                         <Center
@@ -154,13 +149,13 @@ export const SingleProductPage = () => {
                                             cursor="pointer"
                                         >
                                             <Image
-                                                w="75%"
+                                                h="50px"
                                                 transition="all 0.4s ease"
                                                 _hover={{
                                                     transform: "scale(1.2)",
                                                     transition: "all 0.4s ease",
                                                 }}
-                                                src={'https://assets.pharmeasy.in/apothecary/images/offers_1_ff.webp?dim=256x0'}
+                                                src={cartData.image_src}
                                             />
                                         </Center>
                                     </Flex>
@@ -191,10 +186,10 @@ export const SingleProductPage = () => {
                                         noOfLines={1}
                                         height="30px"
                                     >
-                                        {"product.name"}
+                                        {cartData.productName}
                                     </Text>
                                     <Text fontSize="14" color="#0f847e" py="2px">
-                                        Visit {'storename'} Store
+                                        Visit Store
                                     </Text>
                                     <Flex
                                         className=" rating"
@@ -224,10 +219,10 @@ export const SingleProductPage = () => {
                                         border={'0px solid'}
                                     >
                                         <Text fontSize="22px" fontWeight="700" border={'0px solid'}>
-                                            ₹{'242.25'}
+                                            ₹{cartData.salePrice}
                                         </Text>
                                         <Text fontSize="14px" color="#8e9ca7" pt='1'>
-                                            MRP₹<span style={{ textDecoration: "line-through" }}>285.00</span>
+                                            MRP₹<span style={{ textDecoration: "line-through" }}>{cartData.MRP}</span>
                                         </Text>
                                         <Flex
                                             border={'0px solid'}
@@ -241,7 +236,7 @@ export const SingleProductPage = () => {
                                             w="75px"
                                             bgImage='url("https://assets.pharmeasy.in/web-assets/dist/1602b4ce.svg")'
                                         >
-                                            {15} % OFF
+                                            {cartData.discountPercent}
                                         </Flex>
                                     </Flex>
                                     <Text fontSize="12px" color="#8e9ca7" mt='-2'>
@@ -291,7 +286,7 @@ export const SingleProductPage = () => {
                     >
                         <Box mt='7'>
                             <Text fontSize="14px" fontWeight="600" p="10px">
-                                {"qty"} Items in Cart
+                                {cartItems.length} Items in Cart
                             </Text>
                             <Link to="/cart">
                                 <Button

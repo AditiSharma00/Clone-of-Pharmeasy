@@ -33,6 +33,9 @@ export const Products = () => {
         return store.prodReducer
     });
 
+    const [storeData, setStoreData] = useState(products)
+    const [sort, setSort] = useState([])
+    const [update, setUpdate] = useState(false);
     const { state, _ } = useContext(ProductContext)
     const [category, setCategory] = useState('');
 
@@ -47,13 +50,40 @@ export const Products = () => {
         else if (state === "covidKits") setCategory('Health Condition');
 
         if (state) {
-            dispatch(getProducts(state))
+            dispatch(getProducts(state)).then(()=>{
+                setStoreData(products)
+            })
         }
         else {
             setCategory('Health Care');
-            dispatch(getProducts('health-care'))
+            dispatch(getProducts('health-care')).then(()=>{
+                setStoreData(products)
+            })
         }
-    }, [])
+    }, [state])
+
+    useEffect(() => {
+        setStoreData(sort)
+    }, [update]);
+
+
+    const handleSortByPrice = (e) => {
+        const { value } = e.target;
+        setUpdate(!update);
+        if (value === "asc") {
+            let asc = storeData.sort((a, b) => {
+                return a.salePrice - b.salePrice;
+            });
+            setSort(asc);
+        }
+        else if (value === "des") {
+            let des = storeData.sort((a, b) => {
+                return b.salePrice - a.salePrice;
+            });
+            setSort(des);
+        }
+    };
+
 
 
     return (
@@ -129,7 +159,7 @@ export const Products = () => {
                         </Heading>
                         <HStack gap='10px'>
                             <Text w='60px' fontSize={'14px'}>Sort By :</Text>
-                            <Select w='180px' h='30px'>
+                            <Select w='180px' h='30px' onChange={handleSortByPrice}>
                                 <option value="">Select</option>
                                 <option value="asc">Price Low to High</option>
                                 <option value="des">Price High to Low</option>
@@ -138,7 +168,7 @@ export const Products = () => {
                     </HStack>
 
                     <Grid templateColumns='repeat(3, 1fr)' gap={6}>
-                        {products?.map((el) => (
+                        {storeData?.map((el) => (
                             <ProductCard key={el.id} alt={el.id}
                                 {...el} />
                         ))}
