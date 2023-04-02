@@ -57,7 +57,7 @@ const AddressDrawer = () => {
           color="white"
           _hover={{ bg: "#0c6964" }}
           onClick={onOpen}
-          marginLeft="34px"
+          marginLeft={"34px"}
         >
           Add Delivery Address
         </Button>
@@ -76,6 +76,7 @@ const AddressDrawer = () => {
           color="white"
           _hover={{ bg: "#0c6964" }}
           onClick={() => navigate("/payment")}
+          marginLeft={"34px"}
         >
           Buy Now
         </Button>

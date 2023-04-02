@@ -20,7 +20,7 @@ import { GiConfirmed } from "react-icons/gi";
 import { useNavigate } from "react-router-dom";
 
 const Payment = () => {
-  const[total_price,setTotalPrice]=useState(0)
+  const [total_price, setTotalPrice] = useState(0);
   const [cartItems, setCartItems] = useState([]);
   useEffect(() => {
     const items = JSON.parse(localStorage.getItem("cartItems")) || [];
@@ -35,8 +35,8 @@ const Payment = () => {
     });
     setTotalPrice(total);
   }, [cartItems]);
-  console.log(total_price)
-  
+  console.log(total_price);
+
   const offersArray = [
     {
       id: 1,
@@ -63,9 +63,7 @@ const Payment = () => {
   const [check, setCheck] = useState(false);
   const [checked, setChecked] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const Navigate = useNavigate()
-
-  
+  const Navigate = useNavigate();
 
   const handleChange = (e) => {
     if (e.target.type === "checkbox") {
@@ -78,18 +76,17 @@ const Payment = () => {
     setChecked(!checked);
   };
 
-  const handlebuy=()=>{
-      onOpen();
-      setTimeout(() => {
-        onClose();
-        //localStorage.removeItem("cartvalue");
-        localStorage.removeItem("cartItems");
-        Navigate("/")
-      }, 5000)
-  }
+  const handlebuy = () => {
+    onOpen();
+    setTimeout(() => {
+      onClose();
+      //localStorage.removeItem("cartvalue");
+      localStorage.removeItem("cartItems");
+      Navigate("/");
+    }, 5000);
+  };
 
-
- // let prices = JSON.parse(localStorage.getItem("cartvalue"));
+  // let prices = JSON.parse(localStorage.getItem("cartvalue"));
 
   return (
     <>
@@ -173,7 +170,7 @@ const Payment = () => {
             </div>
           </div>
 
-          {/* ***********8 */}
+          {/* *****8 */}
 
           <div className={styles.upiPaymentWrapper}>
             <img
@@ -313,7 +310,6 @@ const Payment = () => {
                   ml="40px"
                   p="14px 16px"
                   onClick={handlebuy}
-
                 >
                   Place Order
                 </Button>
@@ -470,7 +466,7 @@ const Payment = () => {
                   fontWeight="500"
                   fontFamily='"Open Sans", sans-serif'
                 >
-                  {Number(total_price) + 49} 
+                  {Number(total_price) + 49}
                 </Text>
               </Flex>
             </Flex>
