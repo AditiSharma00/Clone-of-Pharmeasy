@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Payment.module.css";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import {
@@ -20,6 +20,23 @@ import { GiConfirmed } from "react-icons/gi";
 import { useNavigate } from "react-router-dom";
 
 const Payment = () => {
+  const[total_price,setTotalPrice]=useState(0)
+  const [cartItems, setCartItems] = useState([]);
+  useEffect(() => {
+    const items = JSON.parse(localStorage.getItem("cartItems")) || [];
+    setCartItems(items);
+    // console.log(items);
+  }, []);
+  // console.log(cartItems);
+  useEffect(() => {
+    let total = 0;
+    cartItems.forEach((item) => {
+      total += item.salePrice;
+    });
+    setTotalPrice(total);
+  }, [cartItems]);
+  console.log(total_price)
+  
   const offersArray = [
     {
       id: 1,
@@ -65,8 +82,8 @@ const Payment = () => {
       onOpen();
       setTimeout(() => {
         onClose();
-        localStorage.removeItem("cartvalue");
-        localStorage.removeItem("cartitem");
+        //localStorage.removeItem("cartvalue");
+        localStorage.removeItem("cartItems");
         Navigate("/")
       }, 5000)
   }
@@ -358,13 +375,12 @@ const Payment = () => {
               </Box>
               <Flex gap="10px">
                 <Text
-                  textDecoration="line-through"
                   fontSize="16px"
-                  color="#8897a2"
+                  color="#4f585e"
                   fontWeight="400"
                   fontFamily='"Open Sans", sans-serif'
                 >
-                  {/* ₹{prices.sprice} */}
+                  {total_price}
                 </Text>
                 <Text
                   fontSize="16px"
@@ -454,7 +470,7 @@ const Payment = () => {
                   fontWeight="500"
                   fontFamily='"Open Sans", sans-serif'
                 >
-                  {/* ₹{Number(prices.price) + 49} */}
+                  {Number(total_price) + 49} 
                 </Text>
               </Flex>
             </Flex>

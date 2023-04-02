@@ -12,6 +12,7 @@ import AddressDrawer from "../../Components/AddAddressDrawer/AddressDrawer";
 import axios from "axios";
 
 const Cart = () => {
+  const[total_price,setTotalPrice]=useState(0)
   const [cartItems, setCartItems] = useState([]);
   useEffect(() => {
     const items = JSON.parse(localStorage.getItem("cartItems")) || [];
@@ -19,13 +20,20 @@ const Cart = () => {
     // console.log(items);
   }, []);
   // console.log(cartItems);
-
+  useEffect(() => {
+    let total = 0;
+    cartItems.forEach((item) => {
+      total += item.salePrice;
+    });
+    setTotalPrice(total);
+  }, [cartItems]);
+  // console.log(total_price)
   return (
     <>
       <div className={styles.container}>
         <div className={styles.leftContainer}>
           <div className={styles.cartItemsWrapper}>
-            <h1 className={styles.cartItemsNumber}>Items in cart</h1>
+            <h1 className={styles.cartItemsNumber}>{cartItems.length}{" "}Items in cart</h1>
             {/* <p className={styles.priceDes}>Prices are indicative</p> */}
           </div>
           {cartItems?.map((el) => {
@@ -141,7 +149,7 @@ const Cart = () => {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                gap: "5px",
+                gap: "20px",
               }}
             >
               <span>
@@ -161,13 +169,12 @@ const Cart = () => {
               <div className={styles.cartValueWrapper}>
                 <p className={styles.CartValue}>Cart Value</p>
                 <p className={styles.CartValue}>
-                  <span className={styles.orderStrikedPrice} />
+                  <span className>
+                  {total_price}
+                  </span>
                 </p>
               </div>
-              <div className={styles.deliveryChargesWrapper}>
-                <p className={styles.deliveryCharges}>Delivery Charges</p>
-                <p className={styles.deliveryCharges}>₹49.00</p>
-              </div>
+              
               <div className={styles.convenienceWrapper}>
                 <p className={styles.convenienceCharges}>Convenience charges</p>
                 <p className={styles.convenienceCharges}>
@@ -178,18 +185,7 @@ const Cart = () => {
               <div className={styles.toBePaidWrapper}>
                 <p className={styles.toBePaid}>Amount to be paid</p>
                 <p className={styles.toBePaid}>
-                  {/* ₹
-                  {data.length == 0
-                    ? 0
-                    : data.length == 1
-                    ? (Number(data[0].offprice * data[0].qty) + 49).toFixed(2)
-                    : (
-                        Number(
-                          data.reduce(
-                            (a, b) => a.offprice * a.qty + b.offprice * b.qty
-                          )
-                        ) + 49
-                      ).toFixed(2)} */}
+                 {total_price}            
                 </p>
               </div>
               <hr className={styles.seperator} />

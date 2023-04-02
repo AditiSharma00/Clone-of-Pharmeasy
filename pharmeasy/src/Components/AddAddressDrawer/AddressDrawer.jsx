@@ -42,7 +42,7 @@ const AddressDrawer = () => {
     <>
      {!address.bill?<Button
         variant="solid"
-        //   className={styles.addAddressButton}
+          className={styles.addAddressButton}
         width="354px"
         height="45px"
         backgroundColor="#10847e"
@@ -58,7 +58,7 @@ const AddressDrawer = () => {
         Add Delivery Address
       </Button>:<Button
         variant="solid"
-        //   className={styles.addAddressButton}
+         className={styles.addAddressButton}
         width="354px"
         height="45px"
         backgroundColor="#10847e"
@@ -206,7 +206,7 @@ const AddressDrawer = () => {
             </Box>
 
             <Box m="30px 0 0 0">
-              <Text
+              {/* <Text
                 mb="15px"
                 fontSize="14px"
                 color="#4f585e"
@@ -215,8 +215,8 @@ const AddressDrawer = () => {
                 letterSpacing="0.3px"
               >
                 Pincode<span style={{ color: "red" }}>*</span>
-              </Text>
-              <RadioGroup fontSize="12px" name="addType" value={address.addType} onChange={handleChange}>
+              </Text> */}
+              {/* <RadioGroup fontSize="12px" name="addType" value={address.addType} onChange={handleChange}>
                 <Stack
                   spacing={5}
                   direction="row"
@@ -233,7 +233,7 @@ const AddressDrawer = () => {
                   <Radio value="work">Work</Radio>
                   <Radio value="others">Others</Radio>
                 </Stack>
-              </RadioGroup>
+              </RadioGroup> */}
             </Box>
 
             <Box m="30px 40px">
