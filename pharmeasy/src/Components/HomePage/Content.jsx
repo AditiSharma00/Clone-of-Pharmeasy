@@ -217,7 +217,7 @@ const Articles = [
 ];
 export default function Content() {
   return (
-    <div className={content.mainBox}>
+    <div className={content.mainBox} key={Math.random()}>
       <div id="search_box">
         <div style={{ marginTop: "50px" }}>
           <h1 style={{ fontSize: "30px", marginLeft: "30%" }}>
@@ -339,7 +339,7 @@ export default function Content() {
         <h1 className={content.Heading}>Shop by Categories</h1>
         <div className={content.ShopByCategory}>
           {ShopByCategory.map((e) => (
-            <Category img={e.img} name={e.name} />
+            <Category key={e.id} img={e.img} name={e.name} />
           ))}
         </div>
       </div>
@@ -355,6 +355,7 @@ export default function Content() {
         <div className={content.NewLaunch}>
           {newLaunch.map((e) => (
             <Launches
+              key={e.id}
               img={e.img}
               details={e.details}
               mrp={e.mrp}
@@ -379,6 +380,7 @@ export default function Content() {
               mrp={e.mrp}
               price={e.price}
               off={e.off}
+              key={e.id}
             />
           ))}
         </div>
@@ -399,7 +401,7 @@ export default function Content() {
         <div className={content.SubPurpleBoxMid}>
           <p>
             Save 5% on allopathic medicines, 50% on lab tests & get FREE
-            delivery with PLUS membership Know more >
+            delivery with PLUS membership Know more
           </p>
           <Button colorScheme="orange">Explore Now</Button>
         </div>
@@ -461,7 +463,6 @@ export default function Content() {
         }}
       >
         <div>
-          {" "}
           <p>
             <b>Top-Selling Healthcare Products:</b> Accu-Chek Active - 100
             Strips | Supradyn Multivitamin Tablets | DR Morepen BG 03 - 50
@@ -484,7 +485,7 @@ export default function Content() {
           <h1>
             <b>Your One-Stop Online Pharmacy - PharmEasy</b>
           </h1>
-          <p>
+          <div>
             <b>We've got India Covered!</b>
             <p>
               We now deliver in 1000+ cities and towns across 22000+ pin codes.
@@ -494,7 +495,7 @@ export default function Content() {
               Gurgaon, Navi Mumbai, Jaipur, Noida, Lucknow, Ghaziabad &
               Vadodara.
             </p>
-          </p>
+          </div>
           <p>
             <b>
               How Are We Making Lives Simpler With Our Online Medical Store?
