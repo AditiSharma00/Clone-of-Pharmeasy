@@ -5,6 +5,7 @@ import Home from "./Home";
 import NotFound from "./NotFound";
 import { Products } from "../Pages/ProductPage/Products";
 import { SingleProductPage } from "../Pages/SingleProdPage/SingleProductPage";
+import Cart from "./Cart/Cart";
 function AllRoutes() {
   return (
     <Routes>
@@ -13,6 +14,7 @@ function AllRoutes() {
       <Route path="/products" element={<Products />} />
       <Route path="/products/:id" element={<SingleProductPage />} />
       <Route path="/search/:name" element={<Search />}></Route>
+      <Route path="/cart" element={<Cart />} />
     </Routes>
   );
 }
