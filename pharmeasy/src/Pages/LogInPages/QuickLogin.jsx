@@ -52,12 +52,11 @@ export function LoginIndividualSlider() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    let res = await fetch(`https://pharmeasy-server1234.herokuapp.com/Users`);
+    let res = await fetch(`https://upset-dove-zipper.cyclic.app/Users`);
     let res2 = await res.json();
     // console.log(res2);
-
     let flag = false;
-    res2.map((elem) => {
+    res2.forEach((elem) => {
       if (elem.email === user.email && elem.password === user.password) {
         flag = true;
       }
@@ -86,13 +85,13 @@ export function LoginIndividualSlider() {
     } catch (error) {
       console.log(error);
     }
-    // console.log(isAuth);
+    console.log(isAuth);
 
     setUser(initState);
     onClose();
   };
 
-  // console.log(auth);
+  console.log(auth);
   return (
     <>
       {auth ? (
