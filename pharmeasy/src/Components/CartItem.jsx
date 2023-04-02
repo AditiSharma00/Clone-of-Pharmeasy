@@ -3,12 +3,15 @@ import styles from "./CartItem.module.css";
 
 
 const CartItem = ({ data, setdata }) => {
+  console.log("data",data)
+  const [arrdata,setarrdata]=useState(data ?data : null)
+  //console.log("arrdata",arrdata.data.image_src)
   const handleclick = (id) => {
-    let data = JSON.parse(localStorage.getItem("cartitem"));
+    let data = JSON.parse(localStorage.getItem("cartItems"));
     let finaldata = data.filter((ele) => {
-      if (ele._id !=id) return ele;
+      if (ele.id !==id) return ele;
     });
-    localStorage.setItem("cartitem", JSON.stringify(finaldata));
+    localStorage.setItem("cartItems", JSON.stringify(finaldata));
     setdata(finaldata);
   };
 useEffect(()=>{
@@ -16,14 +19,14 @@ useEffect(()=>{
 },[])
 
 function updateqty(id,value) {
-  let data = JSON.parse(localStorage.getItem("cartitem"));
+  let data = JSON.parse(localStorage.getItem("cartItems"));
   let finaldata = data.map((ele) => {
-    if (ele._id == id) return { ...ele, qty: Number(value) };
+    if (ele.id === id) return { ...ele, qty: Number(value) };
     else {
       return ele;
     }
   });
-  localStorage.setItem("cartitem", JSON.stringify(finaldata));
+  localStorage.setItem("cartItems", JSON.stringify(finaldata));
   setdata(finaldata);
 }
   
@@ -34,8 +37,8 @@ function updateqty(id,value) {
         <div className={styles.leftCartSection}>
           <div className={styles.imageWrapper}>
             <img
-            //   src={data.img1}
-            src="https://cdn01.pharmeasy.in/dam/products_otc/I09432/neurobion-forte-tablet-30s-2-1656661904.jpg?dim=100x0&dpr=1.25&q=100"
+                //  src={data.image_src}
+            
               alt="cart item"
               className={styles.cartItemImage}
             />
@@ -68,7 +71,7 @@ function updateqty(id,value) {
                 className={styles.selectQuantity}
                 // eslint-disable-next-line no-undef
                 onChange={(e) => {
-                  updateqty(data._id,e.target.value);
+                  updateqty(data.id,e.target.value);
                 }}
               >
                 <option value="1">Qty 1</option>
