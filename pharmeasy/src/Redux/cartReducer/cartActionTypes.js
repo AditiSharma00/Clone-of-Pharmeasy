@@ -1,5 +1,0 @@
-export const PRODUCT_REQ = "PRODUCT_REQ"
-export const PRODUCT_FAILURE = "PRODUCT_FAILURE"
-
-// Post
-export const ADD_PRODUCT_SUCCESS = "ADD_PRODUCT_SUCCESS"
