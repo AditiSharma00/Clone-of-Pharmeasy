@@ -9,106 +9,40 @@ import { HiCurrencyRupee } from "react-icons/hi";
 import { MdKeyboardArrowUp } from "react-icons/md";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import AddressDrawer from "../../Components/AddAddressDrawer/AddressDrawer";
-import axios from "axios"
+import axios from "axios";
 
 const Cart = () => {
-  
-  let data=[
-    {
-      "image_src": "https://cdn01.pharmeasy.in/dam/products_otc/N72858/smws-greenz-lemino-lemon-green-tea-with-licorice-60-servings-2-1641788473.jpg",
-      "productName": "Pharmeasy Vitamin D3 - Supports Bone Hea...",
-      "salePrice": 356.95,
-      "MRP": "₹649.00",
-      "discountPercent": "45% OFF",
-      "id": 1
-    },
-    {
-      "image_src": "https://cdn01.pharmeasy.in/dam/products_otc/L69936/namhya-ayurvedic-tea-150g-pouch-1-1647364731.jpg",
-      "productName": "Everherb (By Pharmeasy) Moringa (Drum St...",
-      "salePrice": 69.55,
-      "MRP": "₹599.00",
-      "discountPercent": "55% OFF",
-      "id": 2
-    },
-    {
-      "image_src": "https://cdn01.pharmeasy.in/dam/products_otc/S59403/healthvit-keto-fat-burner-formulated-in-usa-with-garcinia-green-tea-green-coffee-cla-60-capsules-2-1654249991.jpg",
-      "productName": "Coq 30mg Coenzyme Q10 Capsules, Nutraceu...",
-      "salePrice": 416.24,
-      "MRP": "₹433.58",
-      "discountPercent": "4% OFF",
-      "id": 3
-    },
-    {
-      "image_src": "https://cdn01.pharmeasy.in/dam/products_otc/T99337/tea-trunk-hibiscus-green-tea-100g-tin-2-1641790297.jpg",
-      "productName": "Pharmeasy Glutathione - Promotes Healthy...",
-      "salePrice": 769.45,
-      "MRP": "₹1399.00",
-      "discountPercent": "45% OFF",
-      "id": 4
-    }
-  ]
-  
- 
-
-  
-  
-  
-    //console.log("data",data)
-
-    // const [localdata,setlocaldata]=useState({sprice:data.length === 0
-    //   ? 0
-    //   : data.length == 1
-    //   ? (data[0].price * data[0].qty).toFixed(2)
-    //   : data
-    //       .reduce((a, b) => a.price * a.qty + b.price * b.qty)
-    //       .toFixed(2),price:data.length == 0
-    //       ? 0
-    //       : data.length == 1
-    //       ? Number(data[0].offprice * data[0].qty).toFixed(2)
-    //       : data
-    //           .reduce(
-    //             (a, b) => a.offprice * a.qty + b.offprice * b.qty
-    //           )
-    //           .toFixed(2)})
-    // useEffect(() => {
-    //             localStorage.setItem('cartvalue',JSON.stringify({sprice:data.length == 0
-    //               ? 0
-    //               : data.length == 1
-    //               ? (data[0].price * data[0].qty).toFixed(2)
-    //               : data
-    //                   .reduce((a, b) => a.price * a.qty + b.price * b.qty)
-    //                   .toFixed(2),price:data.length == 0
-    //                   ? 0
-    //                   : data.length == 1
-    //                   ? Number(data[0].offprice * data[0].qty).toFixed(2)
-    //                   : data
-    //                       .reduce(
-    //                         (a, b) => a.offprice * a.qty + b.offprice * b.qty
-    //                       )
-    //                       .toFixed(2)}))
-  
-    // }, []);
+  const [cartItems, setCartItems] = useState([]);
+  useEffect(() => {
+    const items = JSON.parse(localStorage.getItem("cartItems")) || [];
+    setCartItems(items);
+    // console.log(items);
+  }, []);
+  // console.log(cartItems);
 
   return (
     <>
       <div className={styles.container}>
         <div className={styles.leftContainer}>
           <div className={styles.cartItemsWrapper}>
-            <h1 className={styles.cartItemsNumber}>
-               Items in cart 
-            </h1>
-            <p className={styles.priceDes}>Prices are indicative</p>
+            <h1 className={styles.cartItemsNumber}>Items in cart</h1>
+            {/* <p className={styles.priceDes}>Prices are indicative</p> */}
           </div>
+          {cartItems?.map((el) => {
+            return (
+              <CartItem
+                title={el.productName}
+                image={el.image_src}
+                price={el.salePrice}
+              />
+            );
+          })}
 
-          {data.map((ele) => (
-            <CartItem key={ele.id} data={ele}  />
-          ))}
-          <CartItem/>
           <div className={styles.swiperWrapper}>
             <div className={styles.trendingProductsWrapper}>
               <p className={styles.trendingTitle}>Trending Products Near You</p>
             </div>
-             <CartSwiper  /> 
+            <CartSwiper />
           </div>
           <div className={styles.additionalNotesWrapper}>
             <div className={styles.notesInputWrapper}>
@@ -122,10 +56,7 @@ const Cart = () => {
             <ul className={styles.notesul}>
               <li className={styles.notesli}>
                 A licensed pharmacy would be delivering your order basis
-                availability of product & fastest delivery.{" "}
-                <a href="" className={styles.anchorTag}>
-                  Details
-                </a>{" "}
+                availability of product & fastest delivery. Details
               </li>
               <li className={styles.notesli}>
                 Prices are indicative and may change after billing
@@ -147,39 +78,37 @@ const Cart = () => {
         </div>
         <div className={styles.rightContainer}>
           <div className={styles.offersSection}>
-           
-              <Box
-                width="360px"
-                backgroundColor="azure"
-                height="80px"
-                color="#10847e"
-                border="1px solid #f1f1f1"
-                fontWeight="400"
-                fontSize="14px"
-                fontFamily='"Open Sans", sans-serif'
-                ml="75px"
-                mb="30px"
-                p="10px"
-                borderRadius="8px"
-                display="flex"
-                justify="space-between"
-                textAlign="left"
-                marginLeft="40px"
-                
+            <Box
+              width="360px"
+              backgroundColor="azure"
+              height="80px"
+              color="#10847e"
+              border="1px solid #f1f1f1"
+              fontWeight="400"
+              fontSize="14px"
+              fontFamily='"Open Sans", sans-serif'
+              ml="75px"
+              mb="30px"
+              p="10px"
+              borderRadius="8px"
+              display="flex"
+              justify="space-between"
+              textAlign="left"
+              marginLeft="40px"
+            >
+              <Button
+                bg="transparent"
+                position="relative"
+                top="-20%"
+                mt="0"
+                ml="20px"
+                color="purple"
+                _hover={{ bg: "transparent" }}
               >
-                <Button
-                  bg="transparent"
-                  position="relative"
-                  top="-20%"
-                  mt="0"
-                  ml="20px"
-                  color="purple"
-                  _hover={{bg: "transparent"}}
-                >
-                  Change
-                </Button>
-              </Box>
-                
+                Change
+              </Button>
+            </Box>
+
             <Button
               variant="outlined"
               className={styles.applyCouponButton}
@@ -195,8 +124,8 @@ const Cart = () => {
             >
               Apply Coupon / View Offers
             </Button>
-          
-            <AddressDrawer /> 
+
+            <AddressDrawer />
             <Box
               variant="outlined"
               className={styles.addAddressButton}
@@ -232,26 +161,7 @@ const Cart = () => {
               <div className={styles.cartValueWrapper}>
                 <p className={styles.CartValue}>Cart Value</p>
                 <p className={styles.CartValue}>
-                  <span className={styles.orderStrikedPrice}/>
-                    {/* ₹
-                    {data.length == 0
-                      ? 0
-                      : data.length == 1
-                      ? (data[0].price * data[0].qty).toFixed(2)
-                      : data
-                          .reduce((a, b) => a.price * a.qty + b.price * b.qty)
-                          .toFixed(2)}{" "}
-                  </span>{" "}
-                  ₹
-                  {data.length == 0
-                    ? 0
-                    : data.length == 1
-                    ? Number(data[0].offprice * data[0].qty).toFixed(2)
-                    : data
-                        .reduce(
-                          (a, b) => a.offprice * a.qty + b.offprice * b.qty
-                        )
-                        .toFixed(2)} */}
+                  <span className={styles.orderStrikedPrice} />
                 </p>
               </div>
               <div className={styles.deliveryChargesWrapper}>
@@ -422,10 +332,7 @@ const Cart = () => {
         <div className={styles.downloadWrapper}>
           <div className={styles.downloadTitle}>Download the App For Free</div>
           <div className={styles.AppDownloadButtonWrapper}>
-            <a
-              href="https://play.google.com/store/apps/details?id=com.phonegap.rxpal&hl=en_IN&gl=US&utm_source=web&utm_medium=footer"
-              target="_blank"
-            >
+            <a href="https://play.google.com/store/apps/details?id=com.phonegap.rxpal&hl=en_IN&gl=US&utm_source=web&utm_medium=footer">
               <button className={styles.googlePlayButton}>
                 <img
                   src="https://assets.pharmeasy.in/web-assets/dist/3380aedc.png"
@@ -434,10 +341,7 @@ const Cart = () => {
                 <span>Google Play</span>
               </button>
             </a>
-            <a
-              href="https://apps.apple.com/in/app/pharmeasy-healthcare-app/id982432643"
-              target="_blank"
-            >
+            <a href="https://apps.apple.com/in/app/pharmeasy-healthcare-app/id982432643">
               <button className={styles.appleStoreButton}>
                 <img
                   src="https://assets.pharmeasy.in/web-assets/dist/9bf5c576.png"

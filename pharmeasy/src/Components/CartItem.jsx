@@ -1,49 +1,50 @@
 import React, { useEffect, useState } from "react";
 import styles from "./CartItem.module.css";
 
-const CartItem = ({ data, setdata }) => {
-  const handleclick = (id) => {
-    let data = JSON.parse(localStorage.getItem("cartitem"));
-    let finaldata = data.filter((ele) => {
-      if (ele.id != id) return ele;
-    });
-    localStorage.setItem("cartitem", JSON.stringify(finaldata));
-    setdata(finaldata);
-  };
-  useEffect(() => {}, []);
+const CartItem = ({ image, title, price }) => {
+  // const handleclick = (id) => {
+  //   let data = JSON.parse(localStorage.getItem("cartitem"));
+  //   let finaldata = data.filter((ele) => {
+  //     if (ele.id != id) return ele;
+  //   });
+  //   localStorage.setItem("cartitem", JSON.stringify(finaldata));
+  //   setdata(finaldata);
+  // };
+  // useEffect(() => {}, []);
 
-  function updateqty(id, value) {
-    let data = JSON.parse(localStorage.getItem("cartitem"));
-    let finaldata = data.map((ele) => {
-      if (ele._id == id) return { ...ele, qty: Number(value) };
-      else {
-        return ele;
-      }
-    });
-    localStorage.setItem("cartitem", JSON.stringify(finaldata));
-    setdata(finaldata);
-  }
-
+  // function updateqty(id, value) {
+  //   let data = JSON.parse(localStorage.getItem("cartitem"));
+  //   let finaldata = data.map((ele) => {
+  //     if (ele._id == id) return { ...ele, qty: Number(value) };
+  //     else {
+  //       return ele;
+  //     }
+  //   });
+  //   localStorage.setItem("cartitem", JSON.stringify(finaldata));
+  //   setdata(finaldata);
+  // }
+  // const [cartItems, setCartItems] = useState([]);
+  // useEffect(() => {
+  //   const items = JSON.parse(localStorage.getItem("cartItems")) || [];
+  //   setCartItems(items);
+  //    console.log(items);
+  // }, []);
+  // console.log(cartItems[0].image_src);
   return (
     <>
       <div className={styles.cartItemsDisplay}>
         <div className={styles.leftCartSection}>
           <div className={styles.imageWrapper}>
-            <img
-              //   src={data.img1}
-              src="https://cdn01.pharmeasy.in/dam/products_otc/I09432/neurobion-forte-tablet-30s-2-1656661904.jpg?dim=100x0&dpr=1.25&q=100"
-              alt="cart item"
-              className={styles.cartItemImage}
-            />
+            <img src={image} alt="cart item" className={styles.cartItemImage} />
           </div>
         </div>
         <div className={styles.rightCartSection}>
           <div className={styles.itemTitleWrapper}>
-            <h1 className={styles.cartItemsTitle}></h1>
+            <h1 className={styles.cartItemsTitle}>{title}</h1>
             <div className={styles.deleteButtonWrapper}>
               <button
                 className={styles.deleteButton}
-                onClick={() => handleclick(data._id)}
+                // onClick={() => handleclick()}
               >
                 <img
                   src="https://assets.pharmeasy.in/web-assets/dist/2fb50086.svg"
@@ -53,38 +54,10 @@ const CartItem = ({ data, setdata }) => {
               </button>
             </div>
           </div>
-          <div className={styles.producerCompany}>By </div>
-          <div className={styles.itemQuantityWrapper}>
-            <p className={styles.itemQuantity}></p>
-          </div>
+
           <div className={styles.priceAndQuantityWrapper}>
-            <div className={styles.quantityWrapper}>
-              <select
-                name="quantity"
-                className={styles.selectQuantity}
-                // eslint-disable-next-line no-undef
-                onChange={(e) => {
-                  updateqty(data._id, e.target.value);
-                }}
-              >
-                <option value="1">Qty 1</option>
-                <option value="2">Qty 2</option>
-                <option value="3">Qty 3</option>
-                <option value="4">Qty 4</option>
-                <option value="5">Qty 5</option>
-                <option value="6">Qty 6</option>
-                <option value="7">Qty 7</option>
-                <option value="8">Qty 8</option>
-                <option value="9">Qty 9</option>
-                <option value="10">Qty 10</option>
-              </select>
-            </div>
             <div className={styles.priceWrapper}>
-              <div className={styles.stirkedPriceWrapper}>
-                <p className={styles.strikedPrice}>₹*</p>
-                <p className={styles.offer}>%</p>
-              </div>
-              <div className={styles.actualPrice}>₹*</div>
+              <div className={styles.actualPrice}>₹{price}</div>
             </div>
           </div>
           <div className={styles.arrivalDate}>
