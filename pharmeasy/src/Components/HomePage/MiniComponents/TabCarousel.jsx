@@ -5,17 +5,17 @@ import { useNavigate } from "react-router-dom";
 export const tabCards = [
   {
     title: "Medicine",
-    path: "/medicines",
+    path: "/products",
     img: "https://assets.pharmeasy.in/apothecary/images/medicine_ff.webp?dim=256x0",
   },
   {
     title: "Lab Tests",
-    path: "/labTests",
+    path: "/products",
     img: "https://assets.pharmeasy.in/apothecary/images/labtest_ff.webp?dim=256x0",
   },
   {
     title: "Healthcare",
-    path: "/healthcare",
+    path: "/products",
     img: "https://assets.pharmeasy.in/apothecary/images/healthcare_ff.webp?dim=256x0",
   },
   {
@@ -30,7 +30,7 @@ export const tabCards = [
   },
   {
     title: "Offers",
-    path: "/offers",
+    path: "/products",
     img: "https://assets.pharmeasy.in/apothecary/images/offers_ff.webp?dim=256x0",
   },
   {
