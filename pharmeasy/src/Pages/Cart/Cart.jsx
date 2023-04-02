@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CartItem from "../../Components/CartItem";
 import styles from "./cart.module.css";
 import CartSwiper from "../../Components/CartSwiper.jsx";
@@ -9,9 +9,85 @@ import { HiCurrencyRupee } from "react-icons/hi";
 import { MdKeyboardArrowUp } from "react-icons/md";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import AddressDrawer from "../../Components/AddAddressDrawer/AddressDrawer";
+import axios from "axios"
 
 const Cart = () => {
+  
+  let data=[
+    {
+      "image_src": "https://cdn01.pharmeasy.in/dam/products_otc/N72858/smws-greenz-lemino-lemon-green-tea-with-licorice-60-servings-2-1641788473.jpg",
+      "productName": "Pharmeasy Vitamin D3 - Supports Bone Hea...",
+      "salePrice": 356.95,
+      "MRP": "₹649.00",
+      "discountPercent": "45% OFF",
+      "id": 1
+    },
+    {
+      "image_src": "https://cdn01.pharmeasy.in/dam/products_otc/L69936/namhya-ayurvedic-tea-150g-pouch-1-1647364731.jpg",
+      "productName": "Everherb (By Pharmeasy) Moringa (Drum St...",
+      "salePrice": 69.55,
+      "MRP": "₹599.00",
+      "discountPercent": "55% OFF",
+      "id": 2
+    },
+    {
+      "image_src": "https://cdn01.pharmeasy.in/dam/products_otc/S59403/healthvit-keto-fat-burner-formulated-in-usa-with-garcinia-green-tea-green-coffee-cla-60-capsules-2-1654249991.jpg",
+      "productName": "Coq 30mg Coenzyme Q10 Capsules, Nutraceu...",
+      "salePrice": 416.24,
+      "MRP": "₹433.58",
+      "discountPercent": "4% OFF",
+      "id": 3
+    },
+    {
+      "image_src": "https://cdn01.pharmeasy.in/dam/products_otc/T99337/tea-trunk-hibiscus-green-tea-100g-tin-2-1641790297.jpg",
+      "productName": "Pharmeasy Glutathione - Promotes Healthy...",
+      "salePrice": 769.45,
+      "MRP": "₹1399.00",
+      "discountPercent": "45% OFF",
+      "id": 4
+    }
+  ]
+  
+ 
 
+  
+  
+  
+    //console.log("data",data)
+
+    // const [localdata,setlocaldata]=useState({sprice:data.length === 0
+    //   ? 0
+    //   : data.length == 1
+    //   ? (data[0].price * data[0].qty).toFixed(2)
+    //   : data
+    //       .reduce((a, b) => a.price * a.qty + b.price * b.qty)
+    //       .toFixed(2),price:data.length == 0
+    //       ? 0
+    //       : data.length == 1
+    //       ? Number(data[0].offprice * data[0].qty).toFixed(2)
+    //       : data
+    //           .reduce(
+    //             (a, b) => a.offprice * a.qty + b.offprice * b.qty
+    //           )
+    //           .toFixed(2)})
+    // useEffect(() => {
+    //             localStorage.setItem('cartvalue',JSON.stringify({sprice:data.length == 0
+    //               ? 0
+    //               : data.length == 1
+    //               ? (data[0].price * data[0].qty).toFixed(2)
+    //               : data
+    //                   .reduce((a, b) => a.price * a.qty + b.price * b.qty)
+    //                   .toFixed(2),price:data.length == 0
+    //                   ? 0
+    //                   : data.length == 1
+    //                   ? Number(data[0].offprice * data[0].qty).toFixed(2)
+    //                   : data
+    //                       .reduce(
+    //                         (a, b) => a.offprice * a.qty + b.offprice * b.qty
+    //                       )
+    //                       .toFixed(2)}))
+  
+    // }, []);
 
   return (
     <>
@@ -19,14 +95,14 @@ const Cart = () => {
         <div className={styles.leftContainer}>
           <div className={styles.cartItemsWrapper}>
             <h1 className={styles.cartItemsNumber}>
-              {/* {data.length} Items in cart */}
+               Items in cart 
             </h1>
             <p className={styles.priceDes}>Prices are indicative</p>
           </div>
 
-          {/* {data.map((ele) => (
-            <CartItem key={ele._id} data={ele} setdata={setdata} />
-          ))} */}
+          {data.map((ele) => (
+            <CartItem key={ele.id} data={ele}  />
+          ))}
           <CartItem/>
           <div className={styles.swiperWrapper}>
             <div className={styles.trendingProductsWrapper}>
