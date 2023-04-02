@@ -19,60 +19,67 @@ import {
   Radio,
 } from "@chakra-ui/react";
 import styles from "./AddDrawer.module.css";
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 const AddressDrawer = () => {
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef();
-  const [address, setAddress] = useState(JSON.parse(localStorage.getItem('address'))||{});
+  const [address, setAddress] = useState(
+    JSON.parse(localStorage.getItem("address")) || {}
+  );
   const handleChange = (e) => {
-    const {name, value} = e.target;
+    const { name, value } = e.target;
     setAddress({
-      ...address, 
+      ...address,
       [name]: value,
-    })
+    });
   };
   const handleClick = () => {
     console.log(address);
     localStorage.setItem("address", JSON.stringify(address));
     window.location.reload(true);
-  }
+  };
 
   return (
     <>
-     {!address.bill?<Button
-        variant="solid"
+      {!address.bill ? (
+        <Button
+          variant="solid"
           className={styles.addAddressButton}
-        width="354px"
-        height="45px"
-        backgroundColor="#10847e"
-        border="1px solid #10847e"
-        fontWeight="700"
-        fontSize="16px"
-        fontFamily='"Open Sans", sans-serif'
-        marginTop="25px"
-        color="white"
-        _hover={{ bg: "#0c6964" }}
-        onClick={onOpen}
-      >
-        Add Delivery Address
-      </Button>:<Button
-        variant="solid"
-         className={styles.addAddressButton}
-        width="354px"
-        height="45px"
-        backgroundColor="#10847e"
-        border="1px solid #10847e"
-        fontWeight="700"
-        fontSize="16px"
-        fontFamily='"Open Sans", sans-serif'
-        marginTop="25px"
-        color="white"
-        _hover={{ bg: "#0c6964" }}
-        onClick={()=>navigate('/payment')}
-      >
-       Buy Now
-      </Button>}
+          width="354px"
+          height="45px"
+          backgroundColor="#10847e"
+          border="1px solid #10847e"
+          fontWeight="700"
+          fontSize="16px"
+          fontFamily='"Open Sans", sans-serif'
+          marginTop="25px"
+          color="white"
+          _hover={{ bg: "#0c6964" }}
+          onClick={onOpen}
+          marginLeft="34px"
+        >
+          Add Delivery Address
+        </Button>
+      ) : (
+        <Button
+          variant="solid"
+          className={styles.addAddressButton}
+          width="354px"
+          height="45px"
+          backgroundColor="#10847e"
+          border="1px solid #10847e"
+          fontWeight="700"
+          fontSize="16px"
+          fontFamily='"Open Sans", sans-serif'
+          marginTop="25px"
+          color="white"
+          _hover={{ bg: "#0c6964" }}
+          onClick={() => navigate("/payment")}
+        >
+          Buy Now
+        </Button>
+      )}
       <Drawer
         isOpen={isOpen}
         placement="right"
@@ -125,7 +132,12 @@ const AddressDrawer = () => {
               >
                 Bill To<span style={{ color: "red" }}>*</span>
               </Text>
-              <Input size="lg" name="bill" value={address.bill} onChange={handleChange} />
+              <Input
+                size="lg"
+                name="bill"
+                value={address.bill}
+                onChange={handleChange}
+              />
               <Text
                 m="7px 0 0 10px"
                 fontSize="13px"
@@ -149,7 +161,13 @@ const AddressDrawer = () => {
               >
                 Mobile Number<span style={{ color: "red" }}>*</span>
               </Text>
-              <Input size="lg" name="mobNumber" type="number" value={address.mobNumber} onChange={handleChange} />
+              <Input
+                size="lg"
+                name="mobNumber"
+                type="number"
+                value={address.mobNumber}
+                onChange={handleChange}
+              />
               <Text
                 m="7px 0 0 10px"
                 fontSize="13px"
@@ -174,7 +192,12 @@ const AddressDrawer = () => {
                 Building Name and Flat Number
                 <span style={{ color: "red" }}>*</span>
               </Text>
-              <Input size="lg" name="buildingName" value={address.buildingName} onChange={handleChange} />
+              <Input
+                size="lg"
+                name="buildingName"
+                value={address.buildingName}
+                onChange={handleChange}
+              />
             </Box>
 
             <Box m="30px 0 0 0">
@@ -188,7 +211,12 @@ const AddressDrawer = () => {
               >
                 Street Name<span style={{ color: "red" }}>*</span>
               </Text>
-              <Input size="lg" name="streetName" value={address.streetName} onChange={handleChange} />
+              <Input
+                size="lg"
+                name="streetName"
+                value={address.streetName}
+                onChange={handleChange}
+              />
             </Box>
 
             <Box m="30px 0 0 0">
@@ -202,7 +230,15 @@ const AddressDrawer = () => {
               >
                 Pincode<span style={{ color: "red" }}>*</span>
               </Text>
-              <Input size="lg" w="140px" p="0 10px" type="number" name="pincode" value={address.pincode} onChange={handleChange} />
+              <Input
+                size="lg"
+                w="140px"
+                p="0 10px"
+                type="number"
+                name="pincode"
+                value={address.pincode}
+                onChange={handleChange}
+              />
             </Box>
 
             <Box m="30px 0 0 0">

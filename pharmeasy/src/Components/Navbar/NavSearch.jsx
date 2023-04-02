@@ -8,12 +8,8 @@ import {
   InputRightElement,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 function NavSearch() {
-  const navigate = useNavigate();
-
-  const [name, setName] = useState("");
   return (
     <Box w={{ base: "200px", sm: "400px", lg: "360px", xl: "500px" }}>
       <InputGroup>
@@ -28,7 +24,6 @@ function NavSearch() {
           borderRadius="20px"
           type="text"
           placeholder="Search for"
-          onChange={(e) => setName(e.target.value)}
         />
         <InputRightElement width="5rem">
           <Button
@@ -38,7 +33,6 @@ function NavSearch() {
             height="35px"
             mr="3px"
             mt="3px"
-            onClick={() => navigate(`/search/${name}`)}
           >
             Search
           </Button>
