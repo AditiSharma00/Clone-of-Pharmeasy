@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./CartItem.module.css";
 
 const CartItem = ({ image, title, price }) => {
-  // const handleclick = (id) => {
+  // const handleDelete = (id) => {
   //   let data = JSON.parse(localStorage.getItem("cartitem"));
   //   let finaldata = data.filter((ele) => {
   //     if (ele.id != id) return ele;
@@ -10,7 +10,7 @@ const CartItem = ({ image, title, price }) => {
   //   localStorage.setItem("cartitem", JSON.stringify(finaldata));
   //   setdata(finaldata);
   // };
-  // useEffect(() => {}, []);
+  useEffect(() => {}, []);
 
   // function updateqty(id, value) {
   //   let data = JSON.parse(localStorage.getItem("cartitem"));
@@ -44,7 +44,7 @@ const CartItem = ({ image, title, price }) => {
             <div className={styles.deleteButtonWrapper}>
               <button
                 className={styles.deleteButton}
-                // onClick={() => handleclick()}
+                // onClick={() => handleDelete()}
               >
                 <img
                   src="https://assets.pharmeasy.in/web-assets/dist/2fb50086.svg"
