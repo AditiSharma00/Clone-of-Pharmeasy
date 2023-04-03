@@ -39,7 +39,7 @@ export const Products = () => {
 
     const [storeData, setStoreData] = useState(products)
     // const [sort, setSort] = useState([])
-    // const [update, setUpdate] = useState(false);
+    const [update, setUpdate] = useState(false);
 
     useEffect(() => {
         if (state === 'toothbrush') setCategory('Personal Care');
@@ -60,25 +60,26 @@ export const Products = () => {
         }
     }, [state])
 
-    // useEffect(() => {
-    //     setStoreData(sort)
-    // }, [update]);
+    useEffect(() => {
+        setStoreData(products)
+    }, [update]);
 
 
     const handleSortByPrice = (e) => {
         const { value } = e.target;
-        // if (value === "asc") {
-        //     let asc = storeData.sort((a, b) => {
-        //         return a.salePrice - b.salePrice;
-        //     });
-        //    setStoreData(asc)
-        // }
-        // else if (value === "des") {
-        //     let des = storeData.sort((a, b) => {
-        //         return b.salePrice - a.salePrice;
-        //     });
-        //     setStoreData(des)
-        // }
+        setUpdate(!update)
+        if (value === "asc") {
+            let asc = storeData.sort((a, b) => {
+                return a.salePrice - b.salePrice;
+            });
+           setStoreData(asc)
+        }
+        else if (value === "des") {
+            let des = storeData.sort((a, b) => {
+                return b.salePrice - a.salePrice;
+            });
+            setStoreData(des)
+        }
     };
 
     return (
