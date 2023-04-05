@@ -64,36 +64,30 @@ To run this application on your local system
 
   ![image](./src/Assets/home1.png)
 
-  <img width="1000" alt="Footer" src="./src/Assets/r2.png">
+  <img width="1000" alt="Footer" src="./src/Assets/home1.png">
 ---
 
-### Categories
-
-![image](./src/Assets/r3.png)
-
-![image](./src/Assets/r4.png)
-![image](./src/Assets/r5.png)
 
 ---
 
 ### Products Section
 
-![image](./src/Assets/r6.png)
-![image](./src/Assets/r7.png)
+![image](./src/Assets/prodPage1.png)
+![image](./src/Assets/prodPage2.png)
 
 
 ### Login Page/Signup Page
 
-## <img width="1000" alt="login" src="./src/Assets/r8.png">
+## <img width="1000" alt="login" src="./src/Assets/login.png">
 
 ---
 ### Cart Section
-![image](./src/Assets/r9.png)
+![image](./src/Assets/cartPage.png)
 
 
 ---
 ### Payment Section
-![image](./src/Assets/r10.png)
+![image](./src/Assets/paymentPage.png)
 
 
 
