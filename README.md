@@ -4,7 +4,7 @@
 
 ## HappyPharmEasy.com
 
--Ecommerce Website
+-Ecommerce Website  
 
 PharmEasy is an online pharmacy and healthcare platform based in India. It offers a range of services including online medicine ordering, diagnostic tests, doctor consultations, and online health advice. PharmEasy aims to make healthcare more accessible and convenient for people across India, particularly those who have limited access to medical facilities or live in remote areas. The website allows users to easily upload their prescription, select medicines, and get them delivered to their doorstep. PharmEasy also offers various discounts and cashback offers to make healthcare more affordable for its customers.
 
