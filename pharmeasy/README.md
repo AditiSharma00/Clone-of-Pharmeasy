@@ -1,70 +1,105 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# PharmEasy-Clone
+## [Deployed URL](https://pharmeasy-tan.vercel.app/)
 
-## Available Scripts
+## HappyPharmEasy.com
 
-In the project directory, you can run:
+-Ecommerce Website  
 
-### `npm start`
+PharmEasy is an online pharmacy and healthcare platform based in India. It offers a range of services including online medicine ordering, diagnostic tests, doctor consultations, and online health advice. PharmEasy aims to make healthcare more accessible and convenient for people across India, particularly those who have limited access to medical facilities or live in remote areas. The website allows users to easily upload their prescription, select medicines, and get them delivered to their doorstep. PharmEasy also offers various discounts and cashback offers to make healthcare more affordable for its customers.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## Technologies used
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<hr>
 
-### `npm run build`
+- React
+- Redux
+- Html
+- CSS
+- Javascript
+- Chakra UI
+- React Icons
+- Axios
+- React-multi-carousel
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Installing and Running
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<hr>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To run this application on your local system
 
-### `npm run eject`
+- Clone the Repository
+- Install npm packages
+- Run the application
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Features
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- There is login and logout functionality.
+- Elegant navbar for easy navigation between pages and categories.
+- Product Pages where all the products are displayed using Api.
+- Single Product Page on clicking Each Product carrying description of that product.
+- Cart with Crud Operations.
+- Payment Pages.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Steps to navigate the website:
 
-## Learn More
+<hr>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- On opening the application the user is taken to the landing Page which have a Navbar to navigate to different Section of the application.
+- On the Landing Page Navbar, user can click on Website Logo in Navbar to navigate to categories where all the categories of the products available are displayed.
+- There are three categories available Men/Women/Kids.
+- Product Pages containing all the Products available with options of sort and filter according to users requirements.
+- Single Product Page to view the description of each and every Product.
+- Cart Page with of add/delete the product.
+- Payment Pages with form validation.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+### Home Page and Footer
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+  ![image](./src/Assets/home1.png)
 
-### Analyzing the Bundle Size
+  <img width="1000" alt="Footer" src="./src/Assets/r2.png">
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Categories
 
-### Making a Progressive Web App
+![image](./src/Assets/r3.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+![image](./src/Assets/r4.png)
+![image](./src/Assets/r5.png)
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Products Section
 
-### Deployment
+![image](./src/Assets/r6.png)
+![image](./src/Assets/r7.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+### Login Page/Signup Page
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## <img width="1000" alt="login" src="./src/Assets/r8.png">
+
+---
+### Cart Section
+![image](./src/Assets/r9.png)
+
+
+---
+### Payment Section
+![image](./src/Assets/r10.png)
+
+
+
+
+##  Contributors (Colaborative Project)
+
+1. [Aditi Sharma](https://github.com/AditiSharma00)
+2. [Varun KR](https://github.com/varun2696)
+3. [Mohd Waseem khan](https://github.com/waseem-1995)
