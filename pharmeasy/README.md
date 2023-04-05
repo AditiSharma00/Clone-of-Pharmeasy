@@ -64,7 +64,7 @@ To run this application on your local system
 
   ![image](./src/Assets/home1.png)
 
-  <img width="1000" alt="Footer" src="./src/Assets/r2.png">
+  <img width="1000" alt="Footer" src="./src/Assets/home1.png">
 ---
 
 ### Categories
@@ -84,7 +84,7 @@ To run this application on your local system
 
 ### Login Page/Signup Page
 
-## <img width="1000" alt="login" src="./src/Assets/r8.png">
+## <img width="1000" alt="login" src="./src/Assets/login.png">
 
 ---
 ### Cart Section
