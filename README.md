@@ -62,7 +62,7 @@ To run this application on your local system
 
 ### Home Page and Footer
 
-  ![image](./src/Assets/r1.png)
+  ![image](./src/Assets/home1.png)
 
   <img width="1000" alt="Footer" src="./src/Assets/r2.png">
 ---
