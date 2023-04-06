@@ -98,7 +98,7 @@ To run this application on your local system
 
 
 
-##  Contributors (Colaborative Project)
+##  Contributors (Collaborative Project)
 
 1. [Aditi Sharma](https://github.com/AditiSharma00)
 2. [Varun KR](https://github.com/varun2696)
