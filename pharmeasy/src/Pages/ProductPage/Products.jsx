@@ -31,7 +31,7 @@ export const Products = () => {
 
     const dispatch = useDispatch();
     const { products, isLoading } = useSelector((store) => {
-        console.log('store', store.prodReducer);
+        // console.log('store', store.prodReducer);
         return store.prodReducer
     });
     const { state, _ } = useContext(ProductContext)
