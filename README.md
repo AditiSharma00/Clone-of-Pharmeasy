@@ -62,9 +62,10 @@ To run this application on your local system
 
 ### Home Page and Footer
 
-  ![image](./src/Assets/home1.png)
-
-  <img width="1000" alt="Footer" src="./src/Assets/home1.png">
+![home1](https://user-images.githubusercontent.com/110106484/232668754-1d4bd47e-fdfe-427b-8994-ac1a33360d68.png)
+![home2](https://user-images.githubusercontent.com/110106484/232669048-c1dc3a7c-5cf1-4459-98af-e5a6a8f68bed.png)
+ 
+![footer](https://user-images.githubusercontent.com/110106484/232669220-2b5f7cd4-0e8f-464d-8b9f-f12ff67ce228.png)
 ---
 
 
@@ -72,7 +73,7 @@ To run this application on your local system
 
 ### Products Section
 
-![image](./src/Assets/prodPage1.png)
+![prodPage1](https://user-images.githubusercontent.com/110106484/232669559-6e41ee1a-e3b9-4b03-b8e3-7bb462687720.png)
 ![image](./src/Assets/prodPage2.png)
 
 
