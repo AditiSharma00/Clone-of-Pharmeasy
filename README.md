@@ -86,12 +86,12 @@ To run this application on your local system
 
 ---
 ### Cart Section
-![image](./src/Assets/cartPage.png)
+![cartPage](https://user-images.githubusercontent.com/110106484/232670425-b6fc31b7-e964-49e7-8aa4-4aedf2f00a36.png)
 
 
 ---
 ### Payment Section
-![image](./src/Assets/paymentPage.png)
+![paymentPage](https://user-images.githubusercontent.com/110106484/232670446-ca31bb21-fb17-4e37-b0c9-2ccf82852063.png)
 
 
 
