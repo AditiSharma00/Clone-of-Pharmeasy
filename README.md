@@ -51,12 +51,12 @@ To run this application on your local system
 <hr>
 
 - On opening the application the user is taken to the landing Page which have a Navbar to navigate to different Section of the application.
-- On the Landing Page Navbar, user can click on Website Logo in Navbar to navigate to categories where all the categories of the products available are displayed.
-- There are three categories available Men/Women/Kids.
+- On the Landing Page user can click on Health Care in Navbar to navigate to categories where all the categories of the products available are displayed.
+- There are 8 different categories available Healthcare, Stomach care, Baby care etc.
 - Product Pages containing all the Products available with options of sort and filter according to users requirements.
 - Single Product Page to view the description of each and every Product.
 - Cart Page with of add/delete the product.
-- Payment Pages with form validation.
+- Payment Pages with different payment modes.
 
 ---
 
