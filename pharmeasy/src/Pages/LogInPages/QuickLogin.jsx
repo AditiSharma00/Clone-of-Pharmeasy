@@ -106,7 +106,7 @@ export function LoginIndividualSlider() {
           cursor="pointer"
           _hover={{ color: "#10847E" }}
         >
-          Hello, Log in{" "}
+          Hello , Log In , Please
         </Text>
       )}
       <Drawer

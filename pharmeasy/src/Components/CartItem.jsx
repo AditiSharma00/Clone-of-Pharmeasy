@@ -1,35 +1,24 @@
 import React, { useEffect, useState } from "react";
 import styles from "./CartItem.module.css";
 
-const CartItem = ({ image, title, price }) => {
-  // const handleDelete = (id) => {
-  //   let data = JSON.parse(localStorage.getItem("cartitem"));
-  //   let finaldata = data.filter((ele) => {
-  //     if (ele.id != id) return ele;
-  //   });
-  //   localStorage.setItem("cartitem", JSON.stringify(finaldata));
-  //   setdata(finaldata);
-  // };
-  useEffect(() => {}, []);
+const CartItem = ({ image, title, price, id }) => {
+  const [cartItems, setCartItems] = useState([]);
+  useEffect(() => {
+    const items = JSON.parse(localStorage.getItem("cartItems")) || [];
+    setCartItems(items);
+    // console.log(items);
+  }, []);
 
-  // function updateqty(id, value) {
-  //   let data = JSON.parse(localStorage.getItem("cartitem"));
-  //   let finaldata = data.map((ele) => {
-  //     if (ele._id == id) return { ...ele, qty: Number(value) };
-  //     else {
-  //       return ele;
-  //     }
-  //   });
-  //   localStorage.setItem("cartitem", JSON.stringify(finaldata));
-  //   setdata(finaldata);
-  // }
-  // const [cartItems, setCartItems] = useState([]);
-  // useEffect(() => {
-  //   const items = JSON.parse(localStorage.getItem("cartItems")) || [];
-  //   setCartItems(items);
-  //    console.log(items);
-  // }, []);
-  // console.log(cartItems[0].image_src);
+  // const handleDelete = () => {
+  //   //     // Remove item from cart items list
+  //   //     const updatedItems = cartItems.filter((item) => item.id !== id);
+  //   //     setCartItems(updatedItems);
+  //   // console.log(cartItems)
+  //   //     // Update local storage with new cart items list
+  //   //     localStorage.setItem("cartItems", JSON.stringify(updatedItems));
+  //   console.log("sdfg");
+  // };
+
   return (
     <>
       <div className={styles.cartItemsDisplay}>
