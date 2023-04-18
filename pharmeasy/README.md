@@ -13,8 +13,6 @@ PharmEasy is an online pharmacy and healthcare platform based in India. It offer
 
 ## Technologies used
 
-<hr>
-
 - React
 - Redux
 - Html
@@ -25,9 +23,10 @@ PharmEasy is an online pharmacy and healthcare platform based in India. It offer
 - Axios
 - React-multi-carousel
 
+<hr>
+
 ## Installing and Running
 
-<hr>
 
 To run this application on your local system
 
@@ -35,9 +34,9 @@ To run this application on your local system
 - Install npm packages
 - Run the application
 
+---
 ## Features
 
----
 
 - There is login and logout functionality.
 - Elegant navbar for easy navigation between pages and categories.
@@ -46,9 +45,9 @@ To run this application on your local system
 - Cart with Crud Operations.
 - Payment Pages.
 
-## Steps to navigate the website:
+---
 
-<hr>
+## Steps to navigate the website:
 
 - On opening the application the user is taken to the landing Page which have a Navbar to navigate to different Section of the application.
 - On the Landing Page user can click on Health Care in Navbar to navigate to categories where all the categories of the products available are displayed.
@@ -77,7 +76,7 @@ To run this application on your local system
 
 ![singleProdPage](https://user-images.githubusercontent.com/110106484/232669995-17a9a8fd-5b5f-4e27-846e-a102155bd0df.png)
 
-
+---
 ### Login Page/Signup Page
 
 ![login](https://user-images.githubusercontent.com/110106484/232670152-f9979b23-ff84-49bc-b505-c21a47f663cd.png)
@@ -93,6 +92,7 @@ To run this application on your local system
 ### Payment Section
 ![paymentPage](https://user-images.githubusercontent.com/110106484/232670446-ca31bb21-fb17-4e37-b0c9-2ccf82852063.png)
 
+---
 
 
 
