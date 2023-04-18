@@ -73,13 +73,16 @@ To run this application on your local system
 
 ### Products Section
 
-![prodPage1](https://user-images.githubusercontent.com/110106484/232669559-6e41ee1a-e3b9-4b03-b8e3-7bb462687720.png)
-![image](./src/Assets/prodPage2.png)
+![prodPage2](https://user-images.githubusercontent.com/110106484/232669721-2d895f5a-64b6-4b6a-b20e-3e15a6ac38c3.png)
+
+![singleProdPage](https://user-images.githubusercontent.com/110106484/232669995-17a9a8fd-5b5f-4e27-846e-a102155bd0df.png)
 
 
 ### Login Page/Signup Page
 
-## <img width="1000" alt="login" src="./src/Assets/login.png">
+![login](https://user-images.githubusercontent.com/110106484/232670152-f9979b23-ff84-49bc-b505-c21a47f663cd.png)
+
+![signup](https://user-images.githubusercontent.com/110106484/232670172-5d93955f-b6e0-4282-80fd-68e521d53570.png)
 
 ---
 ### Cart Section
