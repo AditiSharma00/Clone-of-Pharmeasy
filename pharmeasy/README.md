@@ -51,49 +51,47 @@ To run this application on your local system
 <hr>
 
 - On opening the application the user is taken to the landing Page which have a Navbar to navigate to different Section of the application.
-- On the Landing Page Navbar, user can click on Website Logo in Navbar to navigate to categories where all the categories of the products available are displayed.
-- There are three categories available Men/Women/Kids.
+- On the Landing Page user can click on Health Care in Navbar to navigate to categories where all the categories of the products available are displayed.
+- There are 8 different categories available Healthcare, Stomach care, Baby care etc.
 - Product Pages containing all the Products available with options of sort and filter according to users requirements.
 - Single Product Page to view the description of each and every Product.
 - Cart Page with of add/delete the product.
-- Payment Pages with form validation.
+- Payment Pages with different payment modes.
 
 ---
 
 ### Home Page and Footer
 
-  ![image](./src/Assets/home1.png)
-
-  <img width="1000" alt="Footer" src="./src/Assets/home1.png">
+![home1](https://user-images.githubusercontent.com/110106484/232668754-1d4bd47e-fdfe-427b-8994-ac1a33360d68.png)
+![home2](https://user-images.githubusercontent.com/110106484/232669048-c1dc3a7c-5cf1-4459-98af-e5a6a8f68bed.png)
+ 
+![footer](https://user-images.githubusercontent.com/110106484/232669220-2b5f7cd4-0e8f-464d-8b9f-f12ff67ce228.png)
 ---
 
-### Categories
-
-![image](./src/Assets/r3.png)
-
-![image](./src/Assets/r4.png)
-![image](./src/Assets/r5.png)
 
 ---
 
 ### Products Section
 
-![image](./src/Assets/r6.png)
-![image](./src/Assets/r7.png)
+![prodPage2](https://user-images.githubusercontent.com/110106484/232669721-2d895f5a-64b6-4b6a-b20e-3e15a6ac38c3.png)
+
+![singleProdPage](https://user-images.githubusercontent.com/110106484/232669995-17a9a8fd-5b5f-4e27-846e-a102155bd0df.png)
 
 
 ### Login Page/Signup Page
 
-## <img width="1000" alt="login" src="./src/Assets/login.png">
+![login](https://user-images.githubusercontent.com/110106484/232670152-f9979b23-ff84-49bc-b505-c21a47f663cd.png)
+
+![signup](https://user-images.githubusercontent.com/110106484/232670172-5d93955f-b6e0-4282-80fd-68e521d53570.png)
 
 ---
 ### Cart Section
-![image](./src/Assets/r9.png)
+![cartPage](https://user-images.githubusercontent.com/110106484/232670425-b6fc31b7-e964-49e7-8aa4-4aedf2f00a36.png)
 
 
 ---
 ### Payment Section
-![image](./src/Assets/r10.png)
+![paymentPage](https://user-images.githubusercontent.com/110106484/232670446-ca31bb21-fb17-4e37-b0c9-2ccf82852063.png)
 
 
 
