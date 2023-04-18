@@ -77,7 +77,7 @@ To run this application on your local system
 
 ![singleProdPage](https://user-images.githubusercontent.com/110106484/232669995-17a9a8fd-5b5f-4e27-846e-a102155bd0df.png)
 
-
+---
 ### Login Page/Signup Page
 
 ![login](https://user-images.githubusercontent.com/110106484/232670152-f9979b23-ff84-49bc-b505-c21a47f663cd.png)
@@ -93,6 +93,7 @@ To run this application on your local system
 ### Payment Section
 ![paymentPage](https://user-images.githubusercontent.com/110106484/232670446-ca31bb21-fb17-4e37-b0c9-2ccf82852063.png)
 
+---
 
 
 
