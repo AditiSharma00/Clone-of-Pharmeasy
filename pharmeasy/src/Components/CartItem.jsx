@@ -10,7 +10,7 @@ const CartItem = ({ image, title, price }) => {
   //   localStorage.setItem("cartitem", JSON.stringify(finaldata));
   //   setdata(finaldata);
   // };
-  useEffect(() => {}, []);
+  // useEffect(() => {}, []);
 
   // function updateqty(id, value) {
   //   let data = JSON.parse(localStorage.getItem("cartitem"));
@@ -44,7 +44,7 @@ const CartItem = ({ image, title, price }) => {
             <div className={styles.deleteButtonWrapper}>
               <button
                 className={styles.deleteButton}
-                // onClick={() => handleDelete()}
+                //  onClick={() => handleDelete()}
               >
                 <img
                   src="https://assets.pharmeasy.in/web-assets/dist/2fb50086.svg"
