@@ -12,7 +12,7 @@ import AddressDrawer from "../../Components/AddAddressDrawer/AddressDrawer";
 import axios from "axios";
 
 const Cart = () => {
-  const[total_price,setTotalPrice]=useState(0)
+  const [total_price, setTotalPrice] = useState(0);
   const [cartItems, setCartItems] = useState([]);
   useEffect(() => {
     const items = JSON.parse(localStorage.getItem("cartItems")) || [];
@@ -33,7 +33,9 @@ const Cart = () => {
       <div className={styles.container}>
         <div className={styles.leftContainer}>
           <div className={styles.cartItemsWrapper}>
-            <h1 className={styles.cartItemsNumber}>{cartItems.length}{" "}Items in cart</h1>
+            <h1 className={styles.cartItemsNumber}>
+              {cartItems.length} Items in cart
+            </h1>
             {/* <p className={styles.priceDes}>Prices are indicative</p> */}
           </div>
           {cartItems?.map((el) => {
@@ -42,7 +44,6 @@ const Cart = () => {
                 title={el.productName}
                 image={el.image_src}
                 price={el.salePrice}
-                el={el.id}
               />
             );
           })}
@@ -87,37 +88,6 @@ const Cart = () => {
         </div>
         <div className={styles.rightContainer}>
           <div className={styles.offersSection}>
-            <Box
-              width="360px"
-              backgroundColor="azure"
-              height="80px"
-              color="#10847e"
-              border="1px solid #f1f1f1"
-              fontWeight="400"
-              fontSize="14px"
-              fontFamily='"Open Sans", sans-serif'
-              ml="75px"
-              mb="30px"
-              p="10px"
-              borderRadius="8px"
-              display="flex"
-              justify="space-between"
-              textAlign="left"
-              marginLeft="40px"
-            >
-              <Button
-                bg="transparent"
-                position="relative"
-                top="-20%"
-                mt="0"
-                ml="20px"
-                color="purple"
-                _hover={{ bg: "transparent" }}
-              >
-                Change
-              </Button>
-            </Box>
-
             <Button
               variant="outlined"
               className={styles.applyCouponButton}
@@ -170,12 +140,10 @@ const Cart = () => {
               <div className={styles.cartValueWrapper}>
                 <p className={styles.CartValue}>Cart Value</p>
                 <p className={styles.CartValue}>
-                  <span className>
-                  {total_price}
-                  </span>
+                  <span className>{total_price}</span>
                 </p>
               </div>
-              
+
               <div className={styles.convenienceWrapper}>
                 <p className={styles.convenienceCharges}>Convenience charges</p>
                 <p className={styles.convenienceCharges}>
@@ -185,9 +153,7 @@ const Cart = () => {
               <hr className={styles.seperator} />
               <div className={styles.toBePaidWrapper}>
                 <p className={styles.toBePaid}>Amount to be paid</p>
-                <p className={styles.toBePaid}>
-                 {total_price}            
-                </p>
+                <p className={styles.toBePaid}>{total_price}</p>
               </div>
               <hr className={styles.seperator} />
             </div>

@@ -4,6 +4,7 @@ import {
     Breadcrumb,
     BreadcrumbItem,
     BreadcrumbLink,
+    Center,
     Checkbox,
     Divider,
     Grid,
@@ -14,6 +15,7 @@ import {
     InputRightElement,
     Radio,
     Select,
+    Spinner,
     Stack,
     Text
 } from '@chakra-ui/react';
@@ -28,16 +30,16 @@ import { ProductCard } from './ProductCard';
 export const Products = () => {
 
     const dispatch = useDispatch();
-    const { products } = useSelector((store) => {
+    const { products, isLoading } = useSelector((store) => {
         // console.log('store', store.prodReducer);
         return store.prodReducer
     });
-
-    const [storeData, setStoreData] = useState(products)
-    const [sort, setSort] = useState([])
-    const [update, setUpdate] = useState(false);
     const { state, _ } = useContext(ProductContext)
     const [category, setCategory] = useState('');
+
+    const [storeData, setStoreData] = useState(products)
+    // const [sort, setSort] = useState([])
+    const [update, setUpdate] = useState(false);
 
     useEffect(() => {
         if (state === 'toothbrush') setCategory('Personal Care');
@@ -50,41 +52,35 @@ export const Products = () => {
         else if (state === "covidKits") setCategory('Health Condition');
 
         if (state) {
-            dispatch(getProducts(state)).then(()=>{
-                setStoreData(products)
-            })
+            dispatch(getProducts(state))
         }
         else {
             setCategory('Health Care');
-            dispatch(getProducts('health-care')).then(()=>{
-                setStoreData(products)
-            })
+            dispatch(getProducts('health-care'))
         }
     }, [state])
 
     useEffect(() => {
-        setStoreData(sort)
+        setStoreData(products)
     }, [update]);
 
 
     const handleSortByPrice = (e) => {
         const { value } = e.target;
-        setUpdate(!update);
+        setUpdate(!update)
         if (value === "asc") {
             let asc = storeData.sort((a, b) => {
                 return a.salePrice - b.salePrice;
             });
-            setSort(asc);
+           setStoreData(asc)
         }
         else if (value === "des") {
             let des = storeData.sort((a, b) => {
                 return b.salePrice - a.salePrice;
             });
-            setSort(des);
+            setStoreData(des)
         }
     };
-
-
 
     return (
         <Box w='75%' m={'auto'} mt='6' mb='50px' border={'0px solid red'}>
@@ -166,13 +162,26 @@ export const Products = () => {
                             </Select>
                         </HStack>
                     </HStack>
+                    {isLoading ?
+                        <Center >
+                            <Spinner
+                                mt='2rem'
+                                thickness='4px'
+                                speed='0.65s'
+                                emptyColor='gray.200'
+                                color='blue.500'
+                                size='xl'
+                            />
+                        </Center>
+                        :
+                        <Grid templateColumns='repeat(3, 1fr)' gap={6}>
+                            {products?.map((el) => (
+                                <ProductCard key={el.id} alt={el.id}
+                                    {...el} />
+                            ))}
+                        </Grid>
+                    }
 
-                    <Grid templateColumns='repeat(3, 1fr)' gap={6}>
-                        {storeData?.map((el) => (
-                            <ProductCard key={el.id} alt={el.id}
-                                {...el} />
-                        ))}
-                    </Grid>
                 </Stack>
             </Stack>
         </Box>
