@@ -19,6 +19,7 @@ const CartItem = ({ image, title, price, id }) => {
   //   console.log("sdfg");
   // };
 
+
   return (
     <>
       <div className={styles.cartItemsDisplay}>
@@ -33,7 +34,7 @@ const CartItem = ({ image, title, price, id }) => {
             <div className={styles.deleteButtonWrapper}>
               <button
                 className={styles.deleteButton}
-                // onClick={() => handleDelete()}
+                //  onClick={() => handleDelete()}
               >
                 <img
                   src="https://assets.pharmeasy.in/web-assets/dist/2fb50086.svg"

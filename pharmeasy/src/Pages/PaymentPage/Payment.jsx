@@ -86,7 +86,7 @@ const Payment = () => {
     }, 5000);
   };
 
-  // let prices = JSON.parse(localStorage.getItem("cartvalue"));
+  let prices = JSON.parse(localStorage.getItem("cartvalue")
 
   return (
     <>

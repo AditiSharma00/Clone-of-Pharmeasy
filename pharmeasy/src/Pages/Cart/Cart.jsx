@@ -44,7 +44,6 @@ const Cart = () => {
                 title={el.productName}
                 image={el.image_src}
                 price={el.salePrice}
-                id={el.id}
               />
             );
           })}
