@@ -72,7 +72,7 @@ const Payment = () => {
   };
 
   const handleRadioChange = (e) => {
-    // console.log(e.target.checked);
+  
     setChecked(!checked);
   };
 
@@ -80,13 +80,10 @@ const Payment = () => {
     onOpen();
     setTimeout(() => {
       onClose();
-      //localStorage.removeItem("cartvalue");
       localStorage.removeItem("cartItems");
       Navigate("/");
     }, 5000);
   };
-
-  let prices = JSON.parse(localStorage.getItem("cartvalue")
 
   return (
     <>
@@ -205,7 +202,6 @@ const Payment = () => {
                   alt="logo"
                 />
               </div>
-              {/* <hr className={styles.offerSeperator} /> */}
             </div>
           </div>
 
@@ -492,3 +488,4 @@ const Payment = () => {
 };
 
 export default Payment;
+//deleted some comments
